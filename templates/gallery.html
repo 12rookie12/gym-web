@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold's Gym - Gallery</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    header nav a.active {
+      font-weight: bold;
+    }
+
+    /* Gallery Filters */
+    .gallery-filters {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .filter-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: #ff6600;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px;
+      transition: bottom 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      bottom: 0;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: #ff6600;
+      color: #fff;
+    }
+
+    .cta-btn {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="membership.html">Membership</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <h1>Gold's Gym Gallery</h1>
+  </header>
+
+  <!-- Gallery Filters -->
+  <section class="gallery-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="facilities">Facilities</button>
+    <button class="filter-btn" data-filter="classes">Classes</button>
+    <button class="filter-btn" data-filter="trainers">Trainers</button>
+    <button class="filter-btn" data-filter="events">Events</button>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-grid">
+    <div class="gallery-item facilities">
+      <img src="images/gym-facility1.jpg" alt="Gym Facility">
+      <div class="overlay">
+        <h3>State-of-the-Art Equipment</h3>
+        <p>Explore our world-class gym facilities.</p>
+      </div>
+    </div>
+    <div class="gallery-item classes">
+      <img src="images/yoga-class.jpg" alt="Yoga Class">
+      <div class="overlay">
+        <h3>Yoga Classes</h3>
+        <p>Join our relaxing and energizing yoga sessions.</p>
+      </div>
+    </div>
+    <div class="gallery-item trainers">
+      <img src="images/trainer1.jpg" alt="Personal Trainer">
+      <div class="overlay">
+        <h3>Expert Trainers</h3>
+        <p>Meet our certified and experienced trainers.</p>
+      </div>
+    </div>
+    <div class="gallery-item events">
+      <img src="images/gym-event.jpg" alt="Gym Event">
+      <div class="overlay">
+        <h3>Community Events</h3>
+        <p>Participate in our fun and engaging events.</p>
+      </div>
+    </div>
+    <!-- Add more gallery items as needed -->
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Ready to Transform Your Life?</h2>
+    <p>Join Gold's Gym today and start your fitness journey.</p>
+    <a href="membership.html" class="cta-btn">Join Now</a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2023 Gold's Gym. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <script>
+    // Filter Gallery Items
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close');
+
+    document.querySelectorAll('.gallery-item img').forEach(image => {
+      image.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        lightboxImg.src = image.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

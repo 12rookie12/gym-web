@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Progress</title>
+  <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>My Fitness Progress</h1>
+
+    <!-- Progress Chart -->
+    <div class="chart-container">
+      <h2>Weight Loss Progress</h2>
+      <canvas id="progressChart"></canvas>
+    </div>
+
+    <!-- Goal Progress Bar -->
+    <div class="progress-bar-container">
+      <h2>Goal Completion</h2>
+      <div class="progress-bar">
+        <div class="progress" id="goalProgress"></div>
+      </div>
+      <p id="goalText">50% to your goal</p>
+    </div>
+
+    <!-- Form to Update Progress -->
+    <div class="update-form">
+      <h2>Update Progress</h2>
+      <input type="number" id="weightInput" placeholder="Enter your current weight (kg)">
+      <input type="number" id="goalInput" placeholder="Enter your goal weight (kg)">
+      <button id="updateButton">Update</button>
+    </div>
+  </div>
+
+  <script>
+    // Progress Chart
+    const progressChart = new Chart(document.getElementById("progressChart"), {
+      type: "line",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+        datasets: [{
+          label: "Weight (kg)",
+          data: {{ progress_data.weight | tojson }},
+          borderColor: "#76c7c0",
+          backgroundColor: "rgba(118, 199, 192, 0.2)",
+          borderWidth: 2,
+          fill: true,
+        }],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true, position: "top" },
+          tooltip: { enabled: true },
+        },
+        scales: {
+          x: { title: { display: true, text: "Weeks" } },
+          y: { title: { display: true, text: "Weight (kg)" } },
+        },
+      },
+    });
+
+    // Goal Progress Bar
+    const goalProgress = document.getElementById("goalProgress");
+    const goalText = document.getElementById("goalText");
+    const currentWeight = {{ progress_data.weight[-1] }};
+    const goalWeight = {{ progress_data.goal }};
+    const progressPercentage = ((currentWeight - goalWeight) / ({{ progress_data.weight[0] }} - goalWeight)) * 100;
+
+    goalProgress.style.width = `${progressPercentage}%`;
+    goalText.textContent = `${Math.round(progressPercentage)}% to your goal`;
+
+    // Update Progress
+    const updateButton = document.getElementById("updateButton");
+    updateButton.addEventListener("click", async () => {
+      const weight = document.getElementById("weightInput").value;
+      const goal = document.getElementById("goalInput").value;
+
+      const response = await fetch("/update_progress", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ weight, goal }),
+      });
+
+      const data = await response.json();
+      if (data.status === "success") {
+        alert("Progress updated successfully!");
+        location.reload();  // Refresh the page to reflect changes
+      }
+    });
+  </script>
+</body>
+</html>

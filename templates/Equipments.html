@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold's Gym - Equipment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #000;
+            color: #ffd700;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #ffd700;
+            color: #000;
+            border-radius: 4px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .equipment-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .equipment-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .equipment-info {
+            padding: 1.5rem;
+        }
+        
+        .equipment-info h3 {
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .equipment-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #000;
+            color: #ffd700;
+        }
+        
+        footer {
+            background-color: #000;
+            color: #ffd700;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GOLD'S GYM</div>
+        <p>Where Legends Are Made</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="Equipments.html">Equipment</a></li>
+            <li><a href="Cardio.html">Cardio</a></li>
+            <li><a href="Spinning.html">Spinning</a></li>
+            <li><a href="Free-weight.html">Free Weights</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Our Premium Equipment</h1>
+        <p>Gold's Gym offers state-of-the-art equipment to help you achieve your fitness goals.</p>
+        
+        <div class="equipment-grid">
+            <div class="equipment-card">
+                <img src="C:\Users\acer\Desktop\final_year\blackbook\imgs\cardio.jpg" alt="Cardio Equipment">
+                <div class="equipment-info">
+                    <h3>Cardio Machines</h3>
+                    <p>High-quality treadmills, ellipticals, and stair climbers to boost your cardiovascular health.</p>
+                    <a href="Cardio.html" class="btn">Explore Cardio</a>
+                </div>
+            </div>
+            
+            <div class="equipment-card">
+                <img src="C:\Users\acer\Desktop\final_year\blackbook\imgs\spin.jpeg" alt="Spinning Bikes">
+                <div class="equipment-info">
+                    <h3>Spinning Bikes</h3>
+                    <p>Professional-grade spin bikes for high-intensity cycling workouts.</p>
+                    <a href="Spinning.html" class="btn">Explore Spinning</a>
+                </div>
+            </div>
+            
+            <div class="equipment-card">
+                <img src="C:\Users\acer\Desktop\final_year\blackbook\imgs\free-weight.jpeg" alt="Free Weights">
+                <div class="equipment-info">
+                    <h3>Free Weights</h3>
+                    <p>Dumbbells, barbells, and kettlebells for strength training and muscle building.</p>
+                    <a href="Free-weight.html" class="btn">Explore Free Weights</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Gold's Gym. All rights reserved.</p>
+        <p>123 Fitness Street, Gym City, GC 12345</p>
+    </footer>
+</body>
+</html>

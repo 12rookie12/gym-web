@@ -1,0 +1,1099 @@
+/* Navbar Styling */
+.navbar {
+  background-color: #000; /* Black background for the navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
+  padding: 10px 20px;
+  position: static;
+}
+
+.navbar-brand img {
+  height: 50px;
+}
+
+.navbar-toggler {
+  background: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  padding: 8px; /* Add padding */
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* White toggler icon */
+}
+
+.navbar-nav {
+  display: flex; /* Ensure nav-links are flex items */
+  flex-wrap: wrap; /* Wrap links if necessary */
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important; /* White text for the links */
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  padding: 8px 12px; /* Adjust padding for spacing */
+  transition: color 0.3s ease, padding-bottom 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff5722 !important; /* Color change on hover */
+}
+
+/* Underline effect for all links except Gallery */
+.navbar-nav .nav-link:not(.gallery)::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Position the underline slightly below the text */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff5722; /* Underline color */
+  transition: width 0.5s ease; /* Smooth underline expansion */
+}
+
+.navbar-nav .nav-link:not(.gallery):hover::after {
+  width: 100%; /* Full underline on hover */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  background-color: #444; /* Dark background */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-10px); /* Slightly higher initially */
+  opacity: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  transform: translateY(0); /* Reset position */
+  opacity: 1; /* Show dropdown */
+}
+
+.dropdown-item {
+  color: #fff; /* White text */
+}
+
+.dropdown-item:hover {
+  background-color: #555; /* Highlight on hover */
+}
+
+/* Navbar Center Text Styling */
+.navbar-center {
+  flex-grow: 50;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .navbar-center {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align links */
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    justify-content: center; /* Center the entire nav menu */
+    text-align: center; /* Center text within nav-links */
+  }
+
+  .navbar-nav .nav-item {
+    display: inline-block; /* Ensure nav-items are aligned in one row */
+    margin: 0 10px; /* Add some spacing between items */
+  }
+
+  .nav-link {
+    text-align: center; /* Ensure text itself is centered */
+    padding: 8px 15px; /* Add padding for clickability */
+  }
+}
+/* {% comment %} aisi {% endcomment %} */
+
+/* Remove the underline from the dropdown toggle */
+.nav-item .dropdown-toggle {
+  text-decoration: none !important; /* No underline */
+  border: none; /* Remove any border */
+  position: relative; /* Ensure the dropdown button is positioned correctly */
+}
+
+.nav-item .dropdown-toggle::after {
+  content: "▼"; /* Use a triangle symbol for the dropdown arrow */
+  color: #fff; /* Match the arrow color with the text */
+  font-size: 12px; /* Adjust the size of the dropdown arrow */
+  margin-left: 5px; /* Space between the text and arrow */
+  text-decoration: none; /* Remove any underline */
+  border: none; /* Remove any border */
+}
+
+/* Ensure Gallery link has the correct hover effect and no extra underline */
+.navbar-nav .nav-link.gallery::after {
+  content: ""; /* Remove any underline from Gallery link */
+  width: 0; /* No underline width */
+  height: 0; /* No height for the underline */
+  display: none; /* Hide the underline */
+}
+
+/* Underline effect on all other nav links */
+.navbar-nav .nav-link:not(.gallery):hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff5722;
+  transition: width 0.3s ease;
+}
+
+/* {% comment %} dropdown ki unnecessary line ht gyi line  {% endcomment %} */
+/* Hamburger Icon Styling */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18px; /* Adjust height between lines */
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 25px; /* Line width */
+  height: 2px; /* Line thickness */
+  background-color: white; /* White lines */
+  border-radius: 1px; /* Smooth edges */
+}
+
+/* Hide Toggler on Large Screens */
+@media (min-width: 993px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+.nav-item .dropdown-toggle::after {
+  margin-left: 3px;
+}
+
+/* {% comment %} =================================================  NAVBAR KHATAM  ================================================= {% endcomment %} */
+/* Main Yellow Div styling */
+.yellow {
+  background-color: yellow;
+  padding: 100px 20px 50px;
+  border-radius: 50px;
+}
+
+/* Template card styling */
+.template-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.template-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.template-logo {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: logoAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes logoAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.template-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .template-card {
+    padding: 15px;
+  }
+  .template-logo {
+    width: 45px;
+  }
+}
+@media (max-width: 576px) {
+  .template-title {
+    font-size: 1rem;
+  }
+  .template-card {
+    padding: 10px;
+  }
+  .template-logo {
+    width: 40px;
+  }
+}
+/* Fly-in Animation for the Heading */
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+h1.text-center {
+  animation: flyIn 1s ease-in-out;
+}
+
+/* Bounce Animation for Card Images */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+.template-logo {
+  animation: bounce 1.5s infinite;
+}
+/* Fade Animation for Carousel Items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-item {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1; /* Ensure active slide is fully visible */
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  animation: bounce 2s infinite;
+}
+
+.navbar-center {
+  color: yellow; /* Initial color */
+  font-size: 1.5rem; /* Optional: Adjust font size */
+  transition: color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.navbar-center:hover {
+  color: orange; /* Change color to orange on hover */
+}
+
+.legacy {
+  font-family: Imprint MT Shadows;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+
+.differ {
+  margin-top: -75px;
+  margin-bottom: 20px;
+}
+.container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent vertical stacking on small desktops */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.video-container,
+.text-container {
+  flex: 0 0 48%; /* Maintain 48% width on larger screens */
+  max-width: 48%;
+  margin: 10px;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Maintains video proportions */
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  /* Small desktops */
+  .video-container,
+  .text-container {
+    flex: 0 0 49%; /* Prevent stacking; slightly larger to avoid gaps */
+    max-width: 49%;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Tablets and smaller devices */
+  .container {
+    flex-wrap: wrap; /* Allows stacking for smaller devices */
+  }
+
+  .video-container,
+  .text-container {
+    flex: 0 0 100%; /* Stacks vertically */
+    max-width: 100%;
+    margin: 10px 0; /* Adds spacing between stacked items */
+  }
+}
+/* {% comment %} ===================================== TEMPLATE IDHAR KHATAM HUA ===================================== {% endcomment %} */
+.business-section {
+  height: 100%;
+  text-align: center;
+  padding: 50px 15px;
+  background-image: url("C:\Users\acer\Desktop\final_year\blackbook\imgs\bg.jpg"); /* Adjust path if necessary */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Light background with 80% opacity */
+  border-radius: 5px;
+}
+
+.business-heading {
+  margin-bottom: 30px;
+}
+
+.business-heading h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.business-heading span {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.business-box {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.9);
+  transition: all 2s ease-in-out;
+}
+
+.business-box img {
+  width: 80px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.business-box h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.business-box p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.business-box:hover {
+  transform: scale(1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.business-box:hover img {
+  transform: rotate(8deg);
+}
+
+@media (max-width: 768px) {
+  .business-heading h1 {
+    font-size: 2rem;
+  }
+
+  .business-box {
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .business-heading span {
+    font-size: 1rem;
+  }
+
+  .business-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .business-box p {
+    font-size: 0.9rem;
+  }
+}
+
+/* General Styling */
+.business-section {
+  padding: 30px 15px;
+}
+
+.business-heading h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.business-heading span {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Business Box Styling */
+.business-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+
+  /* Animation Setup */
+  opacity: 0;
+}
+
+/* On Scroll Animation */
+.business-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.business-box img {
+  max-width: 80px;
+  margin-bottom: 15px;
+}
+
+.business-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.business-box p {
+  font-size: 1rem;
+  color: #ffc6c6;
+}
+
+/* Animation Trigger */
+.business-box.animated {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .business-box {
+    padding: 15px;
+  }
+  .business-box h2 {
+    font-size: 1.2rem;
+  }
+  .business-box p {
+    font-size: 0.9rem;
+  }
+}
+.business-box:hover {
+  transform: scale(1); /* Slightly bigger */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+}
+.business-section {
+  background-image: url("imgs/bg.jpg"); /* Replace 'your-image-path.jpg' with your image URL */
+  background-size: cover; /* Ensures the image covers the entire section */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 50px 15px; /* Add padding to ensure content is not touching the edges */
+  color: #fff; /* Text color for visibility on the background */
+}
+
+.business-box {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Adds a semi-transparent background to content for better readability */
+  border-radius: 10px; /* Optional: rounded corners */
+  padding: 20px; /* Padding inside each box */
+}
+
+.business-heading h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.business-heading span {
+  color: #ddd; /* Softer color for the subtitle */
+  font-size: 1.2rem;
+}
+
+/* {% comment %} ===============================BUSINESS VERTICAL KHATAM HUA ==============================={% endcomment %} */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.full-background {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Full viewport height(vh) */
+  background: url("C:\Users\acer\Desktop\final_year\blackbook\imgs\office.jpeg")
+    no-repeat center center/cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heading-box {
+  background: rgba(0, 0, 0, 0.7); /* Black with fade effect */
+  padding: 10px 20px; /* Adjusted padding for snug fit */
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+.heading-box h1,
+.heading-box h3 {
+  margin: 0;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.heading-box h1 {
+  font-size: 2rem;
+}
+
+.heading-box h3 {
+  font-size: 1.5rem;
+}
+
+.sign-up-button {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: yellow;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: fadeIn 2s ease-in-out; /* Button animation */
+  transition: transform 0.3s ease;
+}
+
+.sign-up-button:hover {
+  transform: scale(1.1); /* Hover effect */
+}
+
+@media (max-width: 768px) {
+  .heading-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .heading-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .sign-up-button {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* {% comment %} ======================================== SIGN ME UP KHATAM HUA ======================================== {% endcomment %} */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+}
+
+.programs-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.programs-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.programs-section p {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.program {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.program img {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.program-text {
+  width: 50%;
+  padding: 10px;
+  text-align: left;
+}
+
+.program-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.program-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .program img,
+  .program-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .program {
+    flex-direction: column;
+  }
+
+  .program-text {
+    margin-top: 20px;
+  }
+}
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: yellow; /* Full yellow background */
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.main-container {
+  width: 100%;
+  padding: 20px;
+  background: url("imgs/bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-heading h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.secondary-heading h3,
+.sub-heading h5 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.images-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.image-container {
+  width: 22%;
+  text-align: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.image-container h4 {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: yellow;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .image-container {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    width: 90%;
+  }
+}
+/* Footer */
+:root {
+  --primary: #d4af37;
+  --secondary: #000000;
+  --dark: #343a40;
+  --medium-gray: #6c757d;
+  --light-gray: #adb5bd;
+}
+
+footer {
+  background-color: var(--dark);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Logo Section */
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-text {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  margin-left: 0.5rem;
+}
+
+/* Social Media Links Section */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+/* Links Sections */
+.footer-links h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--light-gray);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+/* Contact Section */
+.footer-contact h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+  color: var(--light-gray);
+  line-height: 1.4;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+/* Copyright */
+.copyright {
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--light-gray);
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== TABLET (576px - 767px) ===== */
+@media (min-width: 576px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+  
+  .footer-logo {
+    justify-content: flex-start;
+    grid-column: span 2;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+  
+  .copyright {
+    grid-column: span 2;
+  }
+}
+
+/* ===== SMALL DESKTOP/TABLET LANDSCAPE (768px - 991px) ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem 2rem;
+    text-align: left;
+  }
+  
+  .footer-logo {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    align-self: start;
+  }
+  
+  .footer-links:nth-of-type(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  .footer-links:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .footer-contact {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  
+  .copyright {
+    grid-column: span 2;
+    grid-row: 3;
+  }
+  
+  /* Maintain all design elements */
+  .footer-links h3,
+  .footer-contact h3 {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-links h3::after,
+  .footer-contact h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+  }
+  
+  .footer-links a:hover {
+    transform: translateX(3px);
+  }
+}
+
+/* ===== LARGE DESKTOP (992px+) ===== */
+@media (min-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+  }
+  
+  .footer-logo {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+  
+  .footer-links:nth-of-type(1),
+  .footer-links:nth-of-type(2),
+  .footer-contact {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  
+  .copyright {
+    grid-column: span 4;
+  }
+  
+  /* Maintain all desktop design elements */
+  .footer-links h3,
+  .footer-contact h3 {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-links h3::after,
+  .footer-contact h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+  }
+  
+  .footer-links a:hover {
+    transform: translateX(3px);
+  }
+}
+/*============================================================================================================================================*/
+.fa-map-marker-alt:before {
+  content: "\f3c5";
+  color: #d4af37;
+}
+.fa-phone:before {
+  content: "\f095";
+  color: #d4af37;
+}
+.fa-envelope:before {
+  content: "\f0e0";
+  color: #d4af37;
+}
+.fa-clock-four:before, .fa-clock:before {
+  content: "\f017";
+  color: #d4af37; 
+}
+
+/*==================================*/
+.copyright p{
+margin-bottom: -0.5rem;
+}
+/*==================================*/

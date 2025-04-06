@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold's Gym - Programs</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    header .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a.active {
+      color: #f39c12;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
+
+    /* Programs Section */
+    .programs {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .programs h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .programs-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .program-card {
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .program-card h2 {
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+    }
+
+    .program-card p {
+      padding: 0 20px;
+      color: #666;
+    }
+
+    .program-card button {
+      margin: 20px;
+      padding: 10px 20px;
+      background-color: #f39c12;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .program-card button:hover {
+      background-color: #e67e22;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      padding: 20px;
+      min-width: 250px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+    }
+
+    .footer-section p, .footer-section ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .programs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .program-card {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="golds-gym-logo.png" alt="Gold's Gym Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html" class="active">Programs</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </header>
+
+  <!-- Programs Section -->
+  <section class="programs">
+    <h1>Our Programs</h1>
+    <div class="programs-container">
+      <!-- Program Card 1 -->
+      <div class="program-card">
+        <img src="strength-training.jpg" alt="Strength Training">
+        <h2>Strength Training</h2>
+        <p>Build muscle and increase strength with our expert-led strength training programs.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 2 -->
+      <div class="program-card">
+        <img src="cardio.jpg" alt="Cardio">
+        <h2>Cardio</h2>
+        <p>Improve your cardiovascular health with our state-of-the-art cardio equipment and classes.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 3 -->
+      <div class="program-card">
+        <img src="yoga.jpg" alt="Yoga">
+        <h2>Yoga</h2>
+        <p>Relax and rejuvenate with our yoga classes designed for all skill levels.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 4 -->
+      <div class="program-card">
+        <img src="personal-training.jpg" alt="Personal Training">
+        <h2>Personal Training</h2>
+        <p>Get one-on-one coaching tailored to your fitness goals.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>Gold's Gym is the most recognized name in fitness, serving members for over 50 years.</p>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p>Email: info@goldsgym.com</p>
+        <p>Phone: +1-234-567-890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Gold's Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Mobile Menu
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navUl = document.querySelector('nav ul');
+
+    mobileMenu.addEventListener('click', () => {
+      navUl.classList.toggle('active');
+    });
+
+    // Learn More Button Interaction
+    const learnMoreButtons = document.querySelectorAll('.learn-more');
+
+    learnMoreButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('More details about this program will be displayed here.');
+      });
+    });
+  </script>
+</body>
+</html>
