@@ -388,208 +388,184 @@ h1.text-center {
   }
 }
 /* {% comment %} ===================================== TEMPLATE IDHAR KHATAM HUA ===================================== {% endcomment %} */
-.business-section {
-  height: 100%;
-  text-align: center;
-  padding: 50px 15px;
-  background-image: url("C:\Users\acer\Desktop\final_year\blackbook\imgs\bg.jpg"); /* Adjust path if necessary */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Light background with 80% opacity */
-  border-radius: 5px;
-}
-
-.business-heading {
-  margin-bottom: 30px;
-}
-
-.business-heading h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.business-heading span {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.business-box {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  max-width: 500px;
-  width: 100%;
-  padding: 20px;
-  background-color: #f4f4f4;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: scale(0.9);
-  transition: all 2s ease-in-out;
-}
-
-.business-box img {
-  width: 80px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.business-box h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.business-box p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.business-box:hover {
-  transform: scale(1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.business-box:hover img {
-  transform: rotate(8deg);
-}
-
-@media (max-width: 768px) {
+.business {
+    height: 100%;
+    text-align: center;
+    padding: 50px 15px;
+    /* Adjust path if necessary */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    background-image: url("../../imgs/bg.jpg");
+    background-attachment: fixed;
+    border: rebeccapurple solid 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .business-heading {
+    margin-bottom: 30px;
+  }
+  
+  .business-heading h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .business-heading span {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .businessbox {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(0.9);
+    transition: all 2s ease-in-out;
+  }
+  
+  .businessbox img {
+    width: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .businessbox h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #a2934a;
+  }
+  
+  .businessbox p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .businessbox:hover {
+    transform: scale(1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .businessbox:hover img {
+    transform: rotate(8deg);
+  }
+  
+  @media (max-width: 768px) {
+    .business-heading h1 {
+      font-size: 2rem;
+    }
+  
+    .businessbox {
+      margin: 20px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .business-heading span {
+      font-size: 1rem;
+    }
+  
+    .businessbox h2 {
+      font-size: 1.5rem;
+    }
+  
+    .businessbox p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* General Styling */
+  .business {
+    padding: 30px 15px;
+  }
+  
   .business-heading h1 {
     font-size: 2rem;
+    margin-bottom: 10px;
   }
-
-  .business-box {
-    margin: 20px 0;
-  }
-}
-
-@media (max-width: 480px) {
+  
   .business-heading span {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: #666;
   }
-
-  .business-box h2 {
+  
+  /* Business Box Styling */
+  
+  /* On Scroll Animation */
+  .businessbox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .businessbox img {
+    max-width: 80px;
+    margin-bottom: 15px;
+  }
+  
+  .businessbox h2 {
     font-size: 1.5rem;
+    margin-bottom: 10px;
   }
-
-  .business-box p {
-    font-size: 0.9rem;
+  
+  .businessbox p {
+    font-size: 1rem;
+    color: #ffc6c6;
   }
-}
-
-/* General Styling */
-.business-section {
-  padding: 30px 15px;
-}
-
-.business-heading h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.business-heading span {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-/* Business Box Styling */
-.business-box {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  text-align: center;
-
-  /* Animation Setup */
-  opacity: 0;
-}
-
-/* On Scroll Animation */
-.business-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.business-box img {
-  max-width: 80px;
-  margin-bottom: 15px;
-}
-
-.business-box h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.business-box p {
-  font-size: 1rem;
-  color: #ffc6c6;
-}
-
-/* Animation Trigger */
-.business-box.animated {
-  opacity: 1;
-  transform: scale(0.9);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .business-box {
-    padding: 15px;
+  
+  /* Animation Trigger */
+  .businessbox.animated {
+    opacity: 1;
+    transform: scale(0.9);
   }
-  .business-box h2 {
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .businessbox {
+      padding: 15px;
+    }
+    .businessbox h2 {
+      font-size: 1.2rem;
+    }
+    .businessbox p {
+      font-size: 0.9rem;
+    }
+  }
+  .businesssbox:hover {
+    transform: scale(1); /* Slightly bigger */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+  }
+  
+  
+  .businessbox {
+    background: rgba(
+      0,
+      0,
+      0,
+      0.6
+    ); /* Adds a semi-transparent background to content for better readability */
+    border-radius: 10px; /* Optional: rounded corners */
+    padding: 20px; /* Padding inside each box */
+  }
+  
+  .business-heading h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .business-heading span {
+    color: #ddd; /* Softer color for the subtitle */
     font-size: 1.2rem;
   }
-  .business-box p {
-    font-size: 0.9rem;
-  }
-}
-.business-box:hover {
-  transform: scale(1); /* Slightly bigger */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
-}
-.business-section {
-  background-image: url("imgs/bg.jpg"); /* Replace 'your-image-path.jpg' with your image URL */
-  background-size: cover; /* Ensures the image covers the entire section */
-  background-position: center; /* Centers the image */
-  background-attachment: fixed; /* Keeps the background fixed during scrolling */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  padding: 50px 15px; /* Add padding to ensure content is not touching the edges */
-  color: #fff; /* Text color for visibility on the background */
-}
-
-.business-box {
-  background: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ); /* Adds a semi-transparent background to content for better readability */
-  border-radius: 10px; /* Optional: rounded corners */
-  padding: 20px; /* Padding inside each box */
-}
-
-.business-heading h1 {
-  color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.business-heading span {
-  color: #ddd; /* Softer color for the subtitle */
-  font-size: 1.2rem;
-}
 
 /* {% comment %} ===============================BUSINESS VERTICAL KHATAM HUA ==============================={% endcomment %} */
 
@@ -604,8 +580,8 @@ html {
   position: relative;
   width: 100%;
   height: 400px; /* Full viewport height(vh) */
-  background: url("C:\Users\acer\Desktop\final_year\blackbook\imgs\office.jpeg")
-    no-repeat center center/cover;
+  background: url("../../imgs/office.jpeg") /* Replace with your image path */
+  no-repeat center center/cover;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
@@ -953,7 +929,7 @@ footer {
     gap: 1.5rem;
     text-align: left;
   }
-  
+
   .footer-logo {
     justify-content: flex-start;
     grid-column: span 2;
@@ -962,7 +938,7 @@ footer {
   .social-links {
     justify-content: flex-start;
   }
-  
+
   .copyright {
     grid-column: span 2;
   }
@@ -977,7 +953,7 @@ footer {
     gap: 1.5rem 2rem;
     text-align: left;
   }
-  
+
   .footer-logo {
     grid-column: 1;
     grid-row: 1;
@@ -985,34 +961,34 @@ footer {
     margin-bottom: 0;
     align-self: start;
   }
-  
+
   .footer-links:nth-of-type(1) {
     grid-column: 2;
     grid-row: 1;
   }
-  
+
   .footer-links:nth-of-type(2) {
     grid-column: 1;
     grid-row: 2;
   }
-  
+
   .footer-contact {
     grid-column: 2;
     grid-row: 2;
   }
-  
+
   .copyright {
     grid-column: span 2;
     grid-row: 3;
   }
-  
+
   /* Maintain all design elements */
   .footer-links h3,
   .footer-contact h3 {
     position: relative;
     padding-bottom: 0.5rem;
   }
-  
+
   .footer-links h3::after,
   .footer-contact h3::after {
     content: "";
@@ -1023,7 +999,7 @@ footer {
     height: 2px;
     background-color: var(--primary);
   }
-  
+
   .footer-links a:hover {
     transform: translateX(3px);
   }
@@ -1035,30 +1011,30 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
   }
-  
+
   .footer-logo {
     grid-column: span 1;
     grid-row: auto;
   }
-  
+
   .footer-links:nth-of-type(1),
   .footer-links:nth-of-type(2),
   .footer-contact {
     grid-column: auto;
     grid-row: auto;
   }
-  
+
   .copyright {
     grid-column: span 4;
   }
-  
+
   /* Maintain all desktop design elements */
   .footer-links h3,
   .footer-contact h3 {
     position: relative;
     padding-bottom: 0.5rem;
   }
-  
+
   .footer-links h3::after,
   .footer-contact h3::after {
     content: "";
@@ -1069,7 +1045,7 @@ footer {
     height: 2px;
     background-color: var(--primary);
   }
-  
+
   .footer-links a:hover {
     transform: translateX(3px);
   }
@@ -1087,13 +1063,14 @@ footer {
   content: "\f0e0";
   color: #d4af37;
 }
-.fa-clock-four:before, .fa-clock:before {
+.fa-clock-four:before,
+.fa-clock:before {
   content: "\f017";
-  color: #d4af37; 
+  color: #d4af37;
 }
 
 /*==================================*/
-.copyright p{
-margin-bottom: -0.5rem;
+.copyright p {
+  margin-bottom: -0.5rem;
 }
 /*==================================*/

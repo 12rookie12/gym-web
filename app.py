@@ -3,7 +3,8 @@ from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
 # Initialize main Flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+
 
 # =================================================================
 # 1. ROUTES FOR STATIC HTML PAGES

@@ -5,7 +5,7 @@ import re
 import os
 from flask_session import Session
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 
 app.config["SESSION_TYPE"] = "filesystem" 
