@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gold's Gym - Equipment</title>
+    <title>Gold's Gym - Free Weights</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -74,40 +74,59 @@
         padding: 0 1rem;
       }
 
-      .equipment-grid {
+      .hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("C:\Users\acer\Desktop\final_year\blackbook\imgs\free-weight.jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .weight-section {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 2rem;
+        margin-bottom: 2rem;
       }
 
-      .equipment-card {
+      .weight-card {
         background-color: white;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
       }
 
-      .equipment-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .equipment-card img {
+      .weight-card img {
         width: 100%;
         height: 200px;
         object-fit: cover;
       }
 
-      .equipment-info {
+      .weight-info {
         padding: 1.5rem;
       }
 
-      .equipment-info h3 {
+      .weight-info h3 {
         color: #000;
         margin-bottom: 0.5rem;
       }
 
-      .equipment-info p {
+      .weight-info p {
         color: #666;
         margin-bottom: 1rem;
       }
@@ -126,6 +145,23 @@
       .btn:hover {
         background-color: #000;
         color: #ffd700;
+      }
+
+      .training-tips {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .training-tips h2 {
+        margin-bottom: 1rem;
+      }
+
+      .training-tips ul {
+        list-style-position: inside;
+        margin-bottom: 1rem;
       }
 
       :root {
@@ -395,8 +431,12 @@
       /*==================================*/
 
       @media (max-width: 768px) {
-        .equipment-grid {
+        .weight-section {
           grid-template-columns: 1fr;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
         }
 
         nav ul {
@@ -418,64 +458,96 @@
 
     <nav>
       <ul>
-        <li><a href="Equipments.html">Equipment</a></li>
-        <li><a href="Cardio.html">Cardio</a></li>
-        <li><a href="Spinning.html">Spinning</a></li>
-        <li><a href="Free-weight.html">Free Weights</a></li>
+        <li>
+          <a class="dropdown-item" href="{{ url_for('equipments') }}"
+            >Equipments</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{ url_for('cardio') }}">Cardio</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{ url_for('spinning') }}">Spinning</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{ url_for('freeweight') }}"
+            >Free-weight</a
+          >
+        </li>
       </ul>
     </nav>
 
     <div class="container">
-      <h1>Our Premium Equipment</h1>
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Free Weights Area</h1>
+          <p>
+            Build strength and muscle with our extensive free weights selection
+          </p>
+        </div>
+      </div>
+
+      <h2>Our Free Weights Equipment</h2>
       <p>
-        Gold's Gym offers state-of-the-art equipment to help you achieve your
-        fitness goals.
+        Gold's Gym offers a complete free weights area with everything you need
+        for serious strength training.
       </p>
 
-      <div class="equipment-grid">
-        <div class="equipment-card">
+      <div class="weight-section">
+        <div class="weight-card">
           <img
-            src="{{ url_for('static', filename='imgs/cardio.jpg') }}"
-            alt="Cardio Equipment"
+            src="{{ url_for('static', filename='imgs/free-weight-dumbell.jpeg') }}"
+            alt="Dumbbells"
           />
-          <div class="equipment-info">
-            <h3>Cardio Machines</h3>
+          <div class="weight-info">
+            <h3>Dumbbells</h3>
             <p>
-              High-quality treadmills, ellipticals, and stair climbers to boost
-              your cardiovascular health.
+              Rubber-coated dumbbells ranging from 5lbs to 150lbs in 2.5lb
+              increments.
             </p>
-            <a href="Cardio.html" class="btn">Explore Cardio</a>
+            <a href="#" class="btn">View Details</a>
           </div>
         </div>
 
-        <div class="equipment-card">
+        <div class="weight-card">
           <img
-            src="{{ url_for('static', filename='imgs/spin.jpeg') }}"
-            alt="Spinning Bikes"
+            src="{{ url_for('static', filename='imgs/barbells.jpeg') }}"
+            alt="Barbells"
           />
-          <div class="equipment-info">
-            <h3>Spinning Bikes</h3>
-            <p>
-              Professional-grade spin bikes for high-intensity cycling workouts.
-            </p>
-            <a href="Spinning.html" class="btn">Explore Spinning</a>
+          <div class="weight-info">
+            <h3>Barbells & Plates</h3>
+            <p>Olympic barbells and bumper plates from 2.5kg to 25kg.</p>
+            <a href="#" class="btn">View Details</a>
           </div>
         </div>
 
-        <div class="equipment-card">
+        <div class="weight-card">
           <img
-            src="{{ url_for('static', filename='imgs/free-weight.jpeg') }}"
-            alt="Free Weights"
+            src="{{ url_for('static', filename='imgs/kettlebells.jpeg') }}"
+            alt="Kettlebells"
           />
-          <div class="equipment-info">
-            <h3>Free Weights</h3>
-            <p>
-              Dumbbells, barbells, and kettlebells for strength training and
-              muscle building.
-            </p>
-            <a href="Free-weight.html" class="btn">Explore Free Weights</a>
+          <div class="weight-info">
+            <h3>Kettlebells</h3>
+            <p>Competition-style kettlebells from 8kg to 48kg.</p>
+            <a href="#" class="btn">View Details</a>
           </div>
         </div>
+      </div>
+
+      <div class="training-tips">
+        <h2>Free Weight Training Tips</h2>
+        <ul>
+          <li>Always warm up before lifting heavy weights</li>
+          <li>Maintain proper form to prevent injuries</li>
+          <li>Start with lighter weights and gradually increase</li>
+          <li>Use a spotter for heavy lifts</li>
+          <li>Allow adequate rest between workouts</li>
+        </ul>
+        <p>
+          Our certified trainers are available to help you with proper technique
+          and personalized workout plans.
+        </p>
+        <a href="#" class="btn">Book a Trainer</a>
       </div>
     </div>
 

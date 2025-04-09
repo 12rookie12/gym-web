@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold's Gym - Programs</title>
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      />
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    header .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a.active {
+      color: #f39c12;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
+
+    /* Programs Section */
+    .programs {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .programs h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .programs-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .program-card {
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .program-card h2 {
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+    }
+
+    .program-card p {
+      padding: 0 20px;
+      color: #666;
+    }
+
+    .program-card button {
+      margin: 20px;
+      padding: 10px 20px;
+      background-color: #f39c12;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .program-card button:hover {
+      background-color: #e67e22;
+    }
+
+    /* Footer Section */
+    :root {
+      --primary: #d4af37;
+      --secondary: #000000;
+      --dark: #343a40;
+      --medium-gray: #6c757d;
+      --light-gray: #adb5bd;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    /* Logo Section */
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo-text {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      margin-left: 0.5rem;
+    }
+    
+    /* Social Media Links Section */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      transition: color 0.2s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Links Sections */
+    .footer-links h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Contact Section */
+    .footer-contact h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+      color: var(--light-gray);
+      line-height: 1.4;
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+    }
+    
+    /* Copyright */
+    .copyright {
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--light-gray);
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+      text-align: center;
+      width: 100%;
+    }
+    
+    /* ===== TABLET (576px - 767px) ===== */
+    @media (min-width: 576px) {
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        text-align: left;
+      }
+    
+      .footer-logo {
+        justify-content: flex-start;
+        grid-column: span 2;
+      }
+    
+      .social-links {
+        justify-content: flex-start;
+      }
+    
+      .copyright {
+        grid-column: span 2;
+      }
+    }
+    
+    /* ===== SMALL DESKTOP/TABLET LANDSCAPE (768px - 991px) ===== */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+        gap: 1.5rem 2rem;
+        text-align: left;
+      }
+    
+      .footer-logo {
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+        margin-bottom: 0;
+        align-self: start;
+      }
+    
+      .footer-links:nth-of-type(1) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    
+      .footer-links:nth-of-type(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+    
+      .footer-contact {
+        grid-column: 2;
+        grid-row: 2;
+      }
+    
+      .copyright {
+        grid-column: span 2;
+        grid-row: 3;
+      }
+    
+      /* Maintain all design elements */
+      .footer-links h3,
+      .footer-contact h3 {
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+    
+      .footer-links h3::after,
+      .footer-contact h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+      }
+    
+      .footer-links a:hover {
+        transform: translateX(3px);
+      }
+    }
+    
+    /* ===== LARGE DESKTOP (992px+) ===== */
+    @media (min-width: 992px) {
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: auto;
+      }
+    
+      .footer-logo {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+    
+      .footer-links:nth-of-type(1),
+      .footer-links:nth-of-type(2),
+      .footer-contact {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    
+      .copyright {
+        grid-column: span 4;
+      }
+    
+      /* Maintain all desktop design elements */
+      .footer-links h3,
+      .footer-contact h3 {
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+    
+      .footer-links h3::after,
+      .footer-contact h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+      }
+    
+      .footer-links a:hover {
+        transform: translateX(3px);
+      }
+    }
+    /*============================================================================================================================================*/
+    .fa-map-marker-alt:before {
+      content: "\f3c5";
+      color: #d4af37;
+    }
+    .fa-phone:before {
+      content: "\f095";
+      color: #d4af37;
+    }
+    .fa-envelope:before {
+      content: "\f0e0";
+      color: #d4af37;
+    }
+    .fa-clock-four:before,
+    .fa-clock:before {
+      content: "\f017";
+      color: #d4af37;
+    }
+    
+    /*==================================*/
+    .copyright p {
+      margin-bottom: -0.5rem;
+    }
+    /*==================================*/
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .programs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .program-card {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="golds-gym-logo.png" alt="Gold's Gym Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html" class="active">Programs</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </header>
+
+  <!-- Programs Section -->
+  <section class="programs">
+    <h1>Our Programs</h1>
+    <div class="programs-container">
+      <!-- Program Card 1 -->
+      <div class="program-card">
+        <img src="strength-training.jpg" alt="Strength Training">
+        <h2>Strength Training</h2>
+        <p>Build muscle and increase strength with our expert-led strength training programs.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 2 -->
+      <div class="program-card">
+        <img src="cardio.jpg" alt="Cardio">
+        <h2>Cardio</h2>
+        <p>Improve your cardiovascular health with our state-of-the-art cardio equipment and classes.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 3 -->
+      <div class="program-card">
+        <img src="yoga.jpg" alt="Yoga">
+        <h2>Yoga</h2>
+        <p>Relax and rejuvenate with our yoga classes designed for all skill levels.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <!-- Program Card 4 -->
+      <div class="program-card">
+        <img src="personal-training.jpg" alt="Personal Training">
+        <h2>Personal Training</h2>
+        <p>Get one-on-one coaching tailored to your fitness goals.</p>
+        <button class="learn-more">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <span class="footer-logo-text">GOLD'S GYM</span>
+          </div>
+          <p style="color: #adb5bd">
+            Since 1965, Gold's Gym has been the authority in fitness. We're
+            more than just a gym - we're a community committed to helping you
+            achieve your potential.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Personal Training</a></li>
+            <li><a href="#">Group Classes</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Fitness Ave, Muscle
+            City, MC 90210
+          </p>
+          <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+          <p><i class="fas fa-envelope"></i> info@goldsgym.com</p>
+          <p><i class="fas fa-clock"></i> Open 24/7</p>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 Gold's Gym International. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Mobile Menu
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navUl = document.querySelector('nav ul');
+
+    mobileMenu.addEventListener('click', () => {
+      navUl.classList.toggle('active');
+    });
+
+    // Learn More Button Interaction
+    const learnMoreButtons = document.querySelectorAll('.learn-more');
+
+    learnMoreButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('More details about this program will be displayed here.');
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

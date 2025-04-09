@@ -1,16 +1,10 @@
-from flask import Flask, request, jsonify, render_template, session
+from flask import request, jsonify, render_template, session
 from textblob import TextBlob
 import difflib
 import re
-import os
-from flask_session import Session
+from flask import Blueprint
 
-app = Flask(__name__, static_folder='static')
-
-
-app.config["SESSION_TYPE"] = "filesystem" 
-app.secret_key = os.environ.get("SECRET_KEY", "supersecretkey123")  
-Session(app)
+app = Blueprint('bot', __name__, static_folder='static', template_folder='templates')
 
 
 responses = {

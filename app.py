@@ -1,57 +1,53 @@
 from flask import Flask, render_template
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from werkzeug.serving import run_simple
+from flask_session import Session
+from bot import app as bot_app
+import os
 
-# Initialize main Flask app
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
+app.config["SESSION_TYPE"] = "filesystem" 
+app.secret_key = os.environ.get("SECRET_KEY", "supersecretkey123")  
+Session(app)
 
-
-# =================================================================
-# 1. ROUTES FOR STATIC HTML PAGES
-# =================================================================
-@app.route("/")
+# Serve home page
+@app.route('/')
 def home():
-    return render_template("home.html")
+    return render_template('home.html')
 
-@app.route("/bot")
-def bot():
-    return render_template("bot.html")
-
-@app.route("/contact")
+@app.route('/contact')
 def contact():
-    return render_template("contact_us.html")
+    return render_template('contactus.html')
 
-@app.route("/gallery")
-def gallery():
-    return render_template("gallery.html")
+@app.route('/getstarted')
+def getstarted():
+    return render_template('getstarted.html')
 
-@app.route("/get-started")
-def get_started():
-    return render_template("get_started.html")
+@app.route('/spinning')
+def spinning():
+    return render_template('spinning.html')
 
-@app.route("/programs")
+@app.route('/freeweight')
+def freeweight():
+    return render_template('freeweight.html')
+
+@app.route('/cardio')
+def cardio():
+    return render_template('cardio.html')
+
+@app.route('/equipments')
+def equipments():
+    return render_template('equipments.html')
+
+@app.route('/programs')
 def programs():
-    return render_template("our_programs.html")
+    return render_template('programs.html')
 
-@app.route("/track")
-def progress():
-    return render_template("progress.html")
+@app.route('/getfreetrial')
+def getfreetrial():
+    return render_template('getfreetrial.html')
 
-# =================================================================
-# 2. INTEGRATE SUB-APPS (NO CHANGES TO chat.py OR visual.py)
-# =================================================================
-# Import and mount existing apps
-from chat import app as chat_app  # Your original chat.py (Flask app)
-#from visual import server as visual_server  # Your original visual.py (Dash app)
 
-# Mount them under specific URLs
-app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
-    '/chat': chat_app,      # Access at http://localhost:5000/chat
-    #'/track': visual_server # Access at http://localhost:5000/track
-})
+# Include all routes from bot.py with /bot prefix
+app.register_blueprint(bot_app, url_prefix='/bot')
 
-# =================================================================
-# 3. RUN THE APP
-# =================================================================
-if __name__ == "__main__":
-    app.run('localhost', 5000, app.wsgi_app, use_reloader=True, use_debugger=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

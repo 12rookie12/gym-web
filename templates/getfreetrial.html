@@ -1,1042 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gold's Gym - Free Trial Membership</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary: #d4af37; /* Gold color */
-            --secondary: #000000; /* Black */
-            --accent: #c53030; /* Red for CTAs */
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --gray: #6c757d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: var(--secondary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--secondary);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-text {
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 24px;
-            margin-left: 10px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571019614242-e5b9e347f5c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        
-        .cta-button:hover {
-            background-color: #9c2525;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Form Section */
-        .form-section {
-            padding: 60px 0;
-            background-color: white;
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            position: relative;
-            top: -80px;
-        }
-        
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .form-header h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .form-header p {
-            color: var(--gray);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-col {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background-color: var(--primary);
-            color: var(--secondary);
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .submit-btn:hover {
-            background-color: #c9a227;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 40px 0 80px;
-            background-color: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--secondary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .feature-card p {
-            color: var(--gray);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            font-size: 5rem;
-            color: rgba(212, 175, 55, 0.2);
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            line-height: 1;
-        }
-        
-        .testimonial-content {
-            margin-bottom: 20px;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .author-info p {
-            font-size: 0.9rem;
-            color: var(--light);
-            opacity: 0.8;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
+      :root {
+        --primary: #d4af37; /* Gold color */
+        --secondary: #000000; /* Black */
+        --accent: #c53030; /* Red for CTAs */
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --gray: #6c757d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: var(--secondary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--secondary);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-text {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 24px;
+        margin-left: 10px;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1571019614242-e5b9e347f5c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center/cover;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin: 0 auto 30px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--accent);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      .cta-button:hover {
+        background-color: #9c2525;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Form Section */
+      .form-section {
+        padding: 60px 0;
+        background-color: white;
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        position: relative;
+        top: -80px;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .form-header h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: var(--gray);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .form-col {
+        flex: 1;
+        min-width: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--primary);
+        color: var(--secondary);
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .submit-btn:hover {
+        background-color: #c9a227;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Features Section */
+      .features {
+        padding: 40px 0 80px;
+        background-color: var(--light);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: var(--secondary);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 15px;
+        color: var(--secondary);
+      }
+
+      .feature-card p {
+        color: var(--gray);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 80px 0;
+        background-color: var(--secondary);
+        color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .testimonial-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 30px;
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        font-size: 5rem;
+        color: rgba(212, 175, 55, 0.2);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        line-height: 1;
+      }
+
+      .testimonial-content {
+        margin-bottom: 20px;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+
+      .author-info h4 {
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+
+      .author-info p {
+        font-size: 0.9rem;
+        color: var(--light);
+        opacity: 0.8;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      /* Logo Section */
+      .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo-text {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+        margin-left: 0.5rem;
+      }
+
+      /* Social Media Links Section */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        transition: color 0.2s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Links Sections */
+      .footer-links h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: var(--light-gray);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Contact Section */
+      .footer-contact h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+
+      .footer-contact p {
+        margin-bottom: 0.5rem;
+        color: var(--light-gray);
+        line-height: 1.4;
+        font-size: clamp(0.85rem, 1.5vw, 1rem);
+      }
+
+      /* Copyright */
+      .copyright {
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--light-gray);
+        font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+        text-align: center;
+        width: 100%;
+      }
+
+      /* ===== TABLET (576px - 767px) ===== */
+      @media (min-width: 576px) {
         .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+          text-align: left;
         }
-        
+
         .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+          justify-content: flex-start;
+          grid-column: span 2;
         }
-        
-        .footer-logo-text {
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 20px;
-            margin-left: 10px;
+
+        .social-links {
+          justify-content: flex-start;
         }
-        
-        .footer-about p {
-            margin-bottom: 20px;
-            color: #adb5bd;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
-        
-        .footer-links h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: #adb5bd;
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-        
+
         .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
-            font-size: 0.9rem;
+          grid-column: span 2;
         }
-        
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
+      }
+
+      /* ===== SMALL DESKTOP/TABLET LANDSCAPE (768px - 991px) ===== */
+      @media (min-width: 768px) and (max-width: 991px) {
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto auto;
+          gap: 1.5rem 2rem;
+          text-align: left;
         }
-        
-        .mobile-nav.active {
-            transform: translateX(0);
+
+        .footer-logo {
+          grid-column: 1;
+          grid-row: 1;
+          justify-content: flex-start;
+          margin-bottom: 0;
+          align-self: start;
         }
-        
-        .mobile-nav-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
+
+        .footer-links:nth-of-type(1) {
+          grid-column: 2;
+          grid-row: 1;
         }
-        
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+
+        .footer-links:nth-of-type(2) {
+          grid-column: 1;
+          grid-row: 2;
         }
-        
-        .mobile-nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin: 15px 0;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
+
+        .footer-contact {
+          grid-column: 2;
+          grid-row: 2;
         }
-        
-        .mobile-nav-links a:hover {
-            color: var(--primary);
+
+        .copyright {
+          grid-column: span 2;
+          grid-row: 3;
         }
-        
-        /* Loading Spinner */
-        .spinner {
-            display: none;
-            width: 40px;
-            height: 40px;
-            margin: 10px auto;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
+
+        /* Maintain all design elements */
+        .footer-links h3,
+        .footer-contact h3 {
+          position: relative;
+          padding-bottom: 0.5rem;
         }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--primary);
         }
-        
-        /* Success Message */
-        .success-message {
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            animation: fadeIn 0.5s ease;
+
+        .footer-links a:hover {
+          transform: translateX(3px);
         }
-        
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ===== LARGE DESKTOP (992px+) ===== */
+      @media (min-width: 992px) {
+        .footer-container {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-rows: auto;
         }
-        
-        .animated {
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+
+        .footer-logo {
+          grid-column: span 1;
+          grid-row: auto;
         }
-        
-        .delay-1 {
-            animation-delay: 0.2s;
+
+        .footer-links:nth-of-type(1),
+        .footer-links:nth-of-type(2),
+        .footer-contact {
+          grid-column: auto;
+          grid-row: auto;
         }
-        
-        .delay-2 {
-            animation-delay: 0.4s;
+
+        .copyright {
+          grid-column: span 4;
         }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
+
+        /* Maintain all desktop design elements */
+        .footer-links h3,
+        .footer-contact h3 {
+          position: relative;
+          padding-bottom: 0.5rem;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .form-container {
-                padding: 30px;
-            }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--primary);
         }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .desktop-cta {
-                display: none;
-            }
-            
-            .hero {
-                padding: 80px 0;
-                min-height: 70vh;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .form-container {
-                padding: 25px;
-                top: -60px;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
+
+        .footer-links a:hover {
+          transform: translateX(3px);
         }
-        
-        @media (max-width: 576px) {
-            .logo-text {
-                font-size: 20px;
-            }
-            
-            .hero {
-                padding: 60px 0;
-                min-height: 60vh;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .form-section {
-                padding: 40px 0;
-            }
-            
-            .features {
-                padding: 20px 0 50px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonials {
-                padding: 50px 0;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .footer-contact p {
-                justify-content: center;
-            }
-        }
+      }
+      .fa-map-marker-alt:before {
+        content: "\f3c5";
+        color: #d4af37;
+      }
+      .fa-phone:before {
+        content: "\f095";
+        color: #d4af37;
+      }
+      .fa-envelope:before {
+        content: "\f0e0";
+        color: #d4af37;
+      }
+      .fa-clock-four:before,
+      .fa-clock:before {
+        content: "\f017";
+        color: #d4af37;
+      }
+
+      /*==================================*/
+      .copyright p {
+        margin-bottom: -0.5rem;
+      }
+      /*==================================*/
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <span class="logo-text">GOLD'S GYM</span>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="desktop-cta">
-                <a href="#" class="cta-button">Join Now</a>
-            </div>
+      <div class="container header-container">
+        <div class="logo">
+          <span class="logo-text">GOLD'S GYM</span>
         </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="desktop-cta">
+          <a href="#" class="cta-button">Join Now</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="mobile-nav-links">
-            <a href="#">Home</a>
-            <a href="#">Membership</a>
-            <a href="#">Personal Training</a>
-            <a href="#">Group Classes</a>
-            <a href="#">Locations</a>
-            <a href="#">About Us</a>
-            <a href="#" class="cta-button">Join Now</a>
-        </div>
-    </div>
+    
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="animated">START YOUR FREE TRIAL TODAY</h1>
-            <p class="animated delay-1">Experience world-class training facilities and expert guidance with our 7-day free trial. No commitment, no credit card required.</p>
-            <a href="#free-trial-form" class="cta-button animated delay-2">Claim Your Free Trial</a>
-        </div>
+      <div class="hero-content">
+        <h1 class="animated">START YOUR FREE TRIAL TODAY</h1>
+        <p class="animated delay-1">
+          Experience world-class training facilities and expert guidance with
+          our 7-day free trial. No commitment, no credit card required.
+        </p>
+        <a href="#free-trial-form" class="cta-button animated delay-2"
+          >Claim Your Free Trial</a
+        >
+      </div>
     </section>
 
     <!-- Form Section -->
     <section class="form-section" id="free-trial-form">
-        <div class="container">
-            <div class="form-container animated delay-1">
-                <div class="form-header">
-                    <h2>GET YOUR FREE 7-DAY TRIAL</h2>
-                    <p>Fill out the form below and we'll contact you to schedule your first workout</p>
+      <div class="container">
+        <div class="form-container animated delay-1">
+          <div class="form-header">
+            <h2>GET YOUR FREE 7-DAY TRIAL</h2>
+            <p>
+              Fill out the form below and we'll contact you to schedule your
+              first workout
+            </p>
+          </div>
+
+          <div class="success-message" id="successMessage">
+            Thank you! Your free trial request has been received. We'll contact
+            you shortly.
+          </div>
+
+          <form id="trial-form">
+            <div class="form-row">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="first-name">First Name*</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
                 </div>
-                
-                <div class="success-message" id="successMessage">
-                    Thank you! Your free trial request has been received. We'll contact you shortly.
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="last-name">Last Name*</label>
+                  <input type="text" id="last-name" name="last-name" required />
                 </div>
-                
-                <form id="trial-form">
-                    <div class="form-row">
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label for="first-name">First Name*</label>
-                                <input type="text" id="first-name" name="first-name" required>
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label for="last-name">Last Name*</label>
-                                <input type="text" id="last-name" name="last-name" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label for="email">Email*</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label for="phone">Phone Number*</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location">Preferred Gym Location*</label>
-                        <select id="location" name="location" required>
-                            <option value="">Select Location</option>
-                            <option value="downtown">Downtown</option>
-                            <option value="midtown">Midtown</option>
-                            <option value="uptown">Uptown</option>
-                            <option value="eastside">Eastside</option>
-                            <option value="westside">Westside</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="goals">Primary Fitness Goals</label>
-                        <select id="goals" name="goals">
-                            <option value="">Select Your Goal</option>
-                            <option value="weight-loss">Weight Loss</option>
-                            <option value="muscle-gain">Muscle Gain</option>
-                            <option value="strength-training">Strength Training</option>
-                            <option value="cardio">Cardio Fitness</option>
-                            <option value="flexibility">Flexibility/Mobility</option>
-                            <option value="sports">Sports Performance</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="terms" required> I agree to the <a href="#" style="color: var(--primary);">terms and conditions</a>*
-                        </label>
-                    </div>
-                    
-                    <div class="spinner" id="formSpinner"></div>
-                    <button type="submit" class="submit-btn" id="submitBtn">Claim My Free Trial</button>
-                </form>
+              </div>
             </div>
+
+            <div class="form-row">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="email">Email*</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="phone">Phone Number*</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Preferred Gym Location*</label>
+              <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="downtown">Downtown</option>
+                <option value="midtown">Midtown</option>
+                <option value="uptown">Uptown</option>
+                <option value="eastside">Eastside</option>
+                <option value="westside">Westside</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="goals">Primary Fitness Goals</label>
+              <select id="goals" name="goals">
+                <option value="">Select Your Goal</option>
+                <option value="weight-loss">Weight Loss</option>
+                <option value="muscle-gain">Muscle Gain</option>
+                <option value="strength-training">Strength Training</option>
+                <option value="cardio">Cardio Fitness</option>
+                <option value="flexibility">Flexibility/Mobility</option>
+                <option value="sports">Sports Performance</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>
+                <input type="checkbox" name="terms" required /> I agree to the
+                <a href="#" style="color: var(--primary)"
+                  >terms and conditions</a
+                >*
+              </label>
+            </div>
+
+            <div class="spinner" id="formSpinner"></div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Claim My Free Trial
+            </button>
+          </form>
         </div>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="animated">WHY CHOOSE GOLD'S GYM</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card animated delay-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3>World-Class Equipment</h3>
-                    <p>Access to the latest and greatest fitness equipment from top manufacturers.</p>
-                </div>
-                
-                <div class="feature-card animated delay-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Expert Trainers</h3>
-                    <p>Certified personal trainers to guide you through your fitness journey.</p>
-                </div>
-                
-                <div class="feature-card animated delay-3">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Flexible Schedule</h3>
-                    <p>Open 24/7 to fit your busy lifestyle with no long-term contracts.</p>
-                </div>
-                
-                <div class="feature-card animated delay-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>Variety of Classes</h3>
-                    <p>From yoga to HIIT, we offer classes for all fitness levels.</p>
-                </div>
-                
-                <div class="feature-card animated delay-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>Proven Results</h3>
-                    <p>Join the community that has transformed thousands of lives.</p>
-                </div>
-                
-                <div class="feature-card animated delay-3">
-                    <div class="feature-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>Recovery Amenities</h3>
-                    <p>Sauna, hydro massage, and other recovery tools to help you perform your best.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2 class="animated">WHY CHOOSE GOLD'S GYM</h2>
         </div>
+        <div class="features-grid">
+          <div class="feature-card animated delay-1">
+            <div class="feature-icon">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h3>World-Class Equipment</h3>
+            <p>
+              Access to the latest and greatest fitness equipment from top
+              manufacturers.
+            </p>
+          </div>
+
+          <div class="feature-card animated delay-2">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Expert Trainers</h3>
+            <p>
+              Certified personal trainers to guide you through your fitness
+              journey.
+            </p>
+          </div>
+
+          <div class="feature-card animated delay-3">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Flexible Schedule</h3>
+            <p>
+              Open 24/7 to fit your busy lifestyle with no long-term contracts.
+            </p>
+          </div>
+
+          <div class="feature-card animated delay-1">
+            <div class="feature-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3>Variety of Classes</h3>
+            <p>From yoga to HIIT, we offer classes for all fitness levels.</p>
+          </div>
+
+          <div class="feature-card animated delay-2">
+            <div class="feature-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>Proven Results</h3>
+            <p>Join the community that has transformed thousands of lives.</p>
+          </div>
+
+          <div class="feature-card animated delay-3">
+            <div class="feature-icon">
+              <i class="fas fa-spa"></i>
+            </div>
+            <h3>Recovery Amenities</h3>
+            <p>
+              Sauna, hydro massage, and other recovery tools to help you perform
+              your best.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="animated">SUCCESS STORIES</h2>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card animated delay-1">
-                    <div class="testimonial-content">
-                        "Gold's Gym changed my life. The trainers helped me lose 50 pounds and completely transform my body and mindset. I've never felt better!"
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="author-img">
-                        <div class="author-info">
-                            <h4>Sarah J.</h4>
-                            <p>Member since 2019</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animated delay-2">
-                    <div class="testimonial-content">
-                        "The energy at Gold's Gym is unmatched. The equipment is always clean and available, and the community keeps me motivated to show up every day."
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T." class="author-img">
-                        <div class="author-info">
-                            <h4>Michael T.</h4>
-                            <p>Member since 2018</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animated delay-3">
-                    <div class="testimonial-content">
-                        "As a busy professional, the 24/7 access is a game-changer. The trainers created a customized program that fits my schedule and gets results."
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica L." class="author-img">
-                        <div class="author-info">
-                            <h4>Jessica L.</h4>
-                            <p>Member since 2020</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2 class="animated">SUCCESS STORIES</h2>
         </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card animated delay-1">
+            <div class="testimonial-content">
+              "Gold's Gym changed my life. The trainers helped me lose 50 pounds
+              and completely transform my body and mindset. I've never felt
+              better!"
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://randomuser.me/api/portraits/women/32.jpg"
+                alt="Sarah J."
+                class="author-img"
+              />
+              <div class="author-info">
+                <h4>Sarah J.</h4>
+                <p>Member since 2019</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card animated delay-2">
+            <div class="testimonial-content">
+              "The energy at Gold's Gym is unmatched. The equipment is always
+              clean and available, and the community keeps me motivated to show
+              up every day."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://randomuser.me/api/portraits/men/45.jpg"
+                alt="Michael T."
+                class="author-img"
+              />
+              <div class="author-info">
+                <h4>Michael T.</h4>
+                <p>Member since 2018</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card animated delay-3">
+            <div class="testimonial-content">
+              "As a busy professional, the 24/7 access is a game-changer. The
+              trainers created a customized program that fits my schedule and
+              gets results."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://randomuser.me/api/portraits/women/68.jpg"
+                alt="Jessica L."
+                class="author-img"
+              />
+              <div class="author-info">
+                <h4>Jessica L.</h4>
+                <p>Member since 2020</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <span class="footer-logo-text">GOLD'S GYM</span>
-                    </div>
-                    <p>Since 1965, Gold's Gym has been the authority in fitness. We're more than just a gym - we're a community committed to helping you achieve your potential.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Membership</a></li>
-                        <li><a href="#">Personal Training</a></li>
-                        <li><a href="#">Group Classes</a></li>
-                        <li><a href="#">Locations</a></li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 style="color:#d4af37">Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Fitness Ave, Muscle City, MC 90210</p>
-                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@goldsgym.com</p>
-                    <p><i class="fas fa-clock"></i> Open 24/7</p>
-                </div>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <span class="footer-logo-text">GOLD'S GYM</span>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Gold's Gym International. All Rights Reserved.</p>
+            <p style="color: #adb5bd">
+              Since 1965, Gold's Gym has been the authority in fitness. We're
+              more than just a gym - we're a community committed to helping you
+              achieve your potential.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Membership</a></li>
+              <li><a href="#">Personal Training</a></li>
+              <li><a href="#">Group Classes</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Fitness Ave, Muscle
+              City, MC 90210
+            </p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> info@goldsgym.com</p>
+            <p><i class="fas fa-clock"></i> Open 24/7</p>
+          </div>
         </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Gold's Gym International. All Rights Reserved.</p>
+      </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileNavClose = document.getElementById('mobileNavClose');
-        const mobileNav = document.getElementById('mobileNav');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
+      // Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNavClose = document.getElementById("mobileNavClose");
+      const mobileNav = document.getElementById("mobileNav");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileNav.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      mobileNavClose.addEventListener("click", function () {
+        mobileNav.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      // Close mobile nav when clicking on a link
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileNav.classList.remove("active");
+          document.body.style.overflow = "";
         });
-        
-        mobileNavClose.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // Close mobile nav when clicking on a link
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
+      });
+
+      // Form submission handling
+      const trialForm = document.getElementById("trial-form");
+      const submitBtn = document.getElementById("submitBtn");
+      const formSpinner = document.getElementById("formSpinner");
+      const successMessage = document.getElementById("successMessage");
+
+      trialForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Show loading spinner and disable submit button
+        submitBtn.style.display = "none";
+        formSpinner.style.display = "block";
+
+        // Simulate form submission delay
+        setTimeout(function () {
+          // Hide spinner and show success message
+          formSpinner.style.display = "none";
+          successMessage.style.display = "block";
+
+          // Get form values
+          const firstName = document.getElementById("first-name").value;
+
+          // Update success message with name
+          successMessage.innerHTML = `Thank you, ${firstName}! Your free trial request has been received. A Gold's Gym representative will contact you shortly to schedule your first workout.`;
+
+          // Reset form
+          trialForm.reset();
+
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: "smooth" });
+
+          // Re-enable submit button after 5 seconds
+          setTimeout(function () {
+            submitBtn.style.display = "block";
+          }, 5000);
+        }, 1500);
+      });
+
+      // Animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(".animated");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+              }
             });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        animatedElements.forEach((element) => {
+          observer.observe(element);
         });
-        
-        // Form submission handling
-        const trialForm = document.getElementById('trial-form');
-        const submitBtn = document.getElementById('submitBtn');
-        const formSpinner = document.getElementById('formSpinner');
-        const successMessage = document.getElementById('successMessage');
-        
-        trialForm.addEventListener('submit', function(e) {
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            
-            // Show loading spinner and disable submit button
-            submitBtn.style.display = 'none';
-            formSpinner.style.display = 'block';
-            
-            // Simulate form submission delay
-            setTimeout(function() {
-                // Hide spinner and show success message
-                formSpinner.style.display = 'none';
-                successMessage.style.display = 'block';
-                
-                // Get form values
-                const firstName = document.getElementById('first-name').value;
-                
-                // Update success message with name
-                successMessage.innerHTML = `Thank you, ${firstName}! Your free trial request has been received. A Gold's Gym representative will contact you shortly to schedule your first workout.`;
-                
-                // Reset form
-                trialForm.reset();
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth' });
-                
-                // Re-enable submit button after 5 seconds
-                setTimeout(function() {
-                    submitBtn.style.display = 'block';
-                }, 5000);
-            }, 1500);
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              mobileNav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          });
         });
-        
-        // Animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animated');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        mobileNav.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-        });
-        
-        // Input validation
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^0-9+()-]/g, '');
-        });
+      });
+
+      // Input validation
+      const phoneInput = document.getElementById("phone");
+      phoneInput.addEventListener("input", function (e) {
+        this.value = this.value.replace(/[^0-9+()-]/g, "");
+      });
     </script>
-</body>
+  </body>
 </html>

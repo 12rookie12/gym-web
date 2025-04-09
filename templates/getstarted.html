@@ -1,858 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Started | Gold's Gym</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary: #d4af37; /* Gold color */
-            --secondary: #000000; /* Black */
-            --accent: #c0c0c0; /* Silver */
-            --light: #f8f9fa;
-            --dark: #212529;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 1rem 0;
-            position: relative;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: white;
-            margin-left: 5px;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: auto;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 4rem 0;
-        }
-        
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero-content p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            padding: 0 1rem;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--secondary);
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            font-size: 0.95rem;
-            text-align: center;
-            flex: 1;
-            min-width: 180px;
-            max-width: 250px;
-        }
-        
-        .btn:hover {
-            background: #e6c350;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: var(--secondary);
-        }
-        
-        .membership-plans {
-            padding: 4rem 0;
-            background-color: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .plans-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .plan {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 350px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s;
-            margin: 0 auto;
-        }
-        
-        .plan:hover {
-            transform: translateY(-10px);
-        }
-        
-        .plan-popular {
-            border: 2px solid var(--primary);
-            position: relative;
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--primary);
-            color: var(--secondary);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-        
-        .plan h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .plan-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .plan-price span {
-            font-size: 1rem;
-            color: #666;
-        }
-        
-        .plan-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .plan-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .contact-form {
-            padding: 4rem 0;
-            background-color: white;
-        }
-        
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 0.95rem;
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 1.5rem;
-            padding: 0 1rem;
-        }
-        
-        .footer-section h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section p, .footer-section a {
-            margin-bottom: 1rem;
-            display: block;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-        
-        .social-icons a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-        
-        .social-icons a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1rem;
-            border-top: 1px solid #444;
-            font-size: 0.9rem;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            overflow: auto;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: modalopen 0.5s;
-        }
-        
-        @keyframes modalopen {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        .close-btn:hover {
-            color: var(--secondary);
-        }
-        
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background-color: var(--secondary);
-            z-index: 1001;
-            transition: right 0.3s ease;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            right: 0;
-        }
-        
-        .mobile-nav-links {
-            list-style: none;
-            margin-top: 2rem;
-        }
-        
-        .mobile-nav-links li {
-            margin-bottom: 1.5rem;
-        }
-        
-        .mobile-nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        
-        .mobile-nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .close-mobile-nav {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: white;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            display: none;
-        }
-        
-        .overlay.active {
-            display: block;
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .plan {
-                max-width: 300px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero {
-                min-height: 60vh;
-                padding: 3rem 0;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: none;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .footer-section {
-                flex: 100%;
-                text-align: center;
-            }
-            
-            .social-icons {
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .plan {
-                padding: 1.2rem;
-            }
-            
-            .plan-price {
-                font-size: 1.8rem;
-            }
-            
-            .form-container {
-                padding: 1.2rem;
-            }
-        }
+      :root {
+        --primary: #d4af37; /* Gold color */
+        --secondary: #000000; /* Black */
+        --accent: #c0c0c0; /* Silver */
+        --light: #f8f9fa;
+        --dark: #212529;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .header {
+        background-color: var(--secondary);
+        color: white;
+        padding: 1rem 0;
+        position: relative;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo span {
+        color: white;
+        margin-left: 5px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 1.5rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center/cover;
+        height: auto;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 4rem 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        padding: 0 1rem;
+      }
+
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--primary);
+        color: var(--secondary);
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 0.95rem;
+        text-align: center;
+        flex: 1;
+        min-width: 180px;
+        max-width: 250px;
+      }
+
+      .btn:hover {
+        background: #e6c350;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: var(--secondary);
+      }
+
+      .membership-plans {
+        padding: 4rem 0;
+        background-color: var(--light);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 1rem;
+      }
+
+      .section-title p {
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .plans-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .plan {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s;
+        margin: 0 auto;
+      }
+
+      .plan:hover {
+        transform: translateY(-10px);
+      }
+
+      .plan-popular {
+        border: 2px solid var(--primary);
+        position: relative;
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        background: var(--primary);
+        color: var(--secondary);
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .plan h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .plan-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .plan-price span {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+      }
+
+      .plan-features li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .plan-features li:last-child {
+        border-bottom: none;
+      }
+
+      .contact-form {
+        padding: 4rem 0;
+        background-color: white;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--light);
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: 0.95rem;
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      /* Logo Section */
+      .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo-text {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+        margin-left: 0.5rem;
+      }
+
+      /* Social Media Links Section */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        transition: color 0.2s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Links Sections */
+      .footer-links h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: var(--light-gray);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Contact Section */
+      .footer-contact h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+
+      .footer-contact p {
+        margin-bottom: 0.5rem;
+        color: var(--light-gray);
+        line-height: 1.4;
+        font-size: clamp(0.85rem, 1.5vw, 1rem);
+      }
+
+      /* Copyright */
+      .copyright {
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--light-gray);
+        font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+        text-align: center;
+        width: 100%;
+      }
+
+      /* ===== TABLET (576px - 767px) ===== */
+      @media (min-width: 576px) {
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+          text-align: left;
+        }
+
+        .footer-logo {
+          justify-content: flex-start;
+          grid-column: span 2;
+        }
+
+        .social-links {
+          justify-content: flex-start;
+        }
+
+        .copyright {
+          grid-column: span 2;
+        }
+      }
+
+      /* ===== SMALL DESKTOP/TABLET LANDSCAPE (768px - 991px) ===== */
+      @media (min-width: 768px) and (max-width: 991px) {
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto auto;
+          gap: 1.5rem 2rem;
+          text-align: left;
+        }
+
+        .footer-logo {
+          grid-column: 1;
+          grid-row: 1;
+          justify-content: flex-start;
+          margin-bottom: 0;
+          align-self: start;
+        }
+
+        .footer-links:nth-of-type(1) {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .footer-links:nth-of-type(2) {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .footer-contact {
+          grid-column: 2;
+          grid-row: 2;
+        }
+
+        .copyright {
+          grid-column: span 2;
+          grid-row: 3;
+        }
+
+        /* Maintain all design elements */
+        .footer-links h3,
+        .footer-contact h3 {
+          position: relative;
+          padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--primary);
+        }
+
+        .footer-links a:hover {
+          transform: translateX(3px);
+        }
+      }
+
+      /* ===== LARGE DESKTOP (992px+) ===== */
+      @media (min-width: 992px) {
+        .footer-container {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-rows: auto;
+        }
+
+        .footer-logo {
+          grid-column: span 1;
+          grid-row: auto;
+        }
+
+        .footer-links:nth-of-type(1),
+        .footer-links:nth-of-type(2),
+        .footer-contact {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .copyright {
+          grid-column: span 4;
+        }
+
+        /* Maintain all desktop design elements */
+        .footer-links h3,
+        .footer-contact h3 {
+          position: relative;
+          padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--primary);
+        }
+
+        .footer-links a:hover {
+          transform: translateX(3px);
+        }
+      }
+      /*==========================================================================================================================================*/
+      .fa-map-marker-alt:before {
+        content: "\f3c5";
+        color: #d4af37;
+      }
+      .fa-phone:before {
+        content: "\f095";
+        color: #d4af37;
+      }
+      .fa-envelope:before {
+        content: "\f0e0";
+        color: #d4af37;
+      }
+      .fa-clock-four:before,
+      .fa-clock:before {
+        content: "\f017";
+        color: #d4af37;
+      }
+
+      /*==================================*/
+      .copyright p {
+        margin-bottom: -0.5rem;
+      }
+      /*==================================*/
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">GOLD'S<span>GYM</span></a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="programs.html">Programs</a></li>
-                    <li><a href="get-started.html" class="active">Get Started</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="overlay" id="overlay"></div>
-    <div class="mobile-nav" id="mobileNav">
-        <button class="close-mobile-nav" id="closeMobileNav">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-nav-links">
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">GOLD'S<span>GYM</span></a>
+          <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="get-started.html" class="active">Get Started</a></li>
             <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
+          </ul>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+   
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1>START YOUR FITNESS JOURNEY TODAY</h1>
-            <p>Join the world's most trusted gym brand and transform your life with our expert trainers, state-of-the-art facilities, and supportive community.</p>
-            <div class="btn-container">
-                <a href="#membership" class="btn">VIEW MEMBERSHIPS</a>
-                <a href="#contact" class="btn btn-outline">BOOK A TOUR</a>
-            </div>
+      <div class="container hero-content">
+        <h1>START YOUR FITNESS JOURNEY TODAY</h1>
+        <p>
+          Join the world's most trusted gym brand and transform your life with
+          our expert trainers, state-of-the-art facilities, and supportive
+          community.
+        </p>
+        <div class="btn-container">
+          <a href="#membership" class="btn">VIEW MEMBERSHIPS</a>
+          <a href="#contact" class="btn btn-outline">BOOK A TOUR</a>
         </div>
+      </div>
     </section>
 
     <!-- Membership Plans -->
     <section class="membership-plans" id="membership">
-        <div class="container">
-            <div class="section-title">
-                <h2>MEMBERSHIP PLANS</h2>
-                <p>Choose the plan that fits your fitness goals and lifestyle. All memberships include access to our world-class facilities and equipment.</p>
-            </div>
-            <div class="plans-container">
-                <div class="plan">
-                    <h3>BASIC</h3>
-                    <div class="plan-price">$29<span>/month</span></div>
-                    <ul class="plan-features">
-                        <li>Access to gym facilities</li>
-                        <li>Free weights & cardio equipment</li>
-                        <li>Locker room access</li>
-                        <li>Basic fitness assessment</li>
-                        <li>1 free personal training session</li>
-                    </ul>
-                    <a href="#" class="btn" onclick="openModal('basic')">JOIN NOW</a>
-                </div>
-                <div class="plan plan-popular">
-                    <div class="popular-badge">MOST POPULAR</div>
-                    <h3>PREMIUM</h3>
-                    <div class="plan-price">$49<span>/month</span></div>
-                    <ul class="plan-features">
-                        <li>All Basic benefits</li>
-                        <li>Unlimited group classes</li>
-                        <li>Sauna & steam room access</li>
-                        <li>3 free personal training sessions</li>
-                        <li>Nutrition consultation</li>
-                    </ul>
-                    <a href="#" class="btn" onclick="openModal('premium')">JOIN NOW</a>
-                </div>
-                <div class="plan">
-                    <h3>VIP</h3>
-                    <div class="plan-price">$79<span>/month</span></div>
-                    <ul class="plan-features">
-                        <li>All Premium benefits</li>
-                        <li>Unlimited personal training</li>
-                        <li>24/7 gym access</li>
-                        <li>Towel service</li>
-                        <li>Monthly body composition analysis</li>
-                    </ul>
-                    <a href="#" class="btn" onclick="openModal('vip')">JOIN NOW</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>MEMBERSHIP PLANS</h2>
+          <p>
+            Choose the plan that fits your fitness goals and lifestyle. All
+            memberships include access to our world-class facilities and
+            equipment.
+          </p>
         </div>
+        <div class="plans-container">
+          <div class="plan">
+            <h3>BASIC</h3>
+            <div class="plan-price">$29<span>/month</span></div>
+            <ul class="plan-features">
+              <li>Access to gym facilities</li>
+              <li>Free weights & cardio equipment</li>
+              <li>Locker room access</li>
+              <li>Basic fitness assessment</li>
+              <li>1 free personal training session</li>
+            </ul>
+            <a href="#" class="btn" onclick="openModal('basic')">JOIN NOW</a>
+          </div>
+          <div class="plan plan-popular">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3>PREMIUM</h3>
+            <div class="plan-price">$49<span>/month</span></div>
+            <ul class="plan-features">
+              <li>All Basic benefits</li>
+              <li>Unlimited group classes</li>
+              <li>Sauna & steam room access</li>
+              <li>3 free personal training sessions</li>
+              <li>Nutrition consultation</li>
+            </ul>
+            <a href="#" class="btn" onclick="openModal('premium')">JOIN NOW</a>
+          </div>
+          <div class="plan">
+            <h3>VIP</h3>
+            <div class="plan-price">$79<span>/month</span></div>
+            <ul class="plan-features">
+              <li>All Premium benefits</li>
+              <li>Unlimited personal training</li>
+              <li>24/7 gym access</li>
+              <li>Towel service</li>
+              <li>Monthly body composition analysis</li>
+            </ul>
+            <a href="#" class="btn" onclick="openModal('vip')">JOIN NOW</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Form -->
     <section class="contact-form" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>BOOK A TOUR</h2>
-                <p>Schedule a visit to your nearest Gold's Gym location and experience our facilities firsthand. Our team will be happy to show you around and answer any questions.</p>
-            </div>
-            <div class="form-container">
-                <form id="tourForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Preferred Location</label>
-                        <select id="location" class="form-control" required>
-                            <option value="">Select a location</option>
-                            <option value="nyc">New York City</option>
-                            <option value="la">Los Angeles</option>
-                            <option value="chicago">Chicago</option>
-                            <option value="miami">Miami</option>
-                            <option value="houston">Houston</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Preferred Date</label>
-                        <input type="date" id="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Additional Notes</label>
-                        <textarea id="message" class="form-control"></textarea>
-                    </div>
-                    <button type="submit" class="btn">REQUEST TOUR</button>
-                </form>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>BOOK A TOUR</h2>
+          <p>
+            Schedule a visit to your nearest Gold's Gym location and experience
+            our facilities firsthand. Our team will be happy to show you around
+            and answer any questions.
+          </p>
         </div>
+        <div class="form-container">
+          <form id="tourForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="location">Preferred Location</label>
+              <select id="location" class="form-control" required>
+                <option value="">Select a location</option>
+                <option value="nyc">New York City</option>
+                <option value="la">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="miami">Miami</option>
+                <option value="houston">Houston</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Additional Notes</label>
+              <textarea id="message" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn">REQUEST TOUR</button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ABOUT GOLD'S GYM</h3>
-                    <p>Since 1965, Gold's Gym has been the authority in fitness. We're more than just a gym - we're a lifestyle.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>QUICK LINKS</h3>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="programs.html">Programs</a>
-                    <a href="get-started.html">Get Started</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h3>CONTACT US</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Fitness Way, Venice, CA 90291</p>
-                    <p><i class="fas fa-phone"></i> (800) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@goldsgym.com</p>
-                </div>
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <span class="footer-logo-text">GOLD'S GYM</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Gold's Gym. All Rights Reserved.</p>
+            <p style="color: #adb5bd">
+              Since 1965, Gold's Gym has been the authority in fitness. We're
+              more than just a gym - we're a community committed to helping you
+              achieve your potential.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Membership</a></li>
+              <li><a href="#">Personal Training</a></li>
+              <li><a href="#">Group Classes</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Fitness Ave, Muscle
+              City, MC 90210
+            </p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> info@goldsgym.com</p>
+            <p><i class="fas fa-clock"></i> Open 24/7</p>
+          </div>
         </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Gold's Gym International. All Rights Reserved.</p>
+      </div>
     </footer>
 
-    <!-- Membership Modal -->
-    <div id="membershipModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">JOIN GOLD'S GYM</h2>
-            <form id="membershipForm">
-                <div class="form-group">
-                    <label for="modalName">Full Name</label>
-                    <input type="text" id="modalName" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalEmail">Email</label>
-                    <input type="email" id="modalEmail" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalPhone">Phone Number</label>
-                    <input type="tel" id="modalPhone" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalPlan">Selected Plan</label>
-                    <input type="text" id="modalPlan" class="form-control" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="modalLocation">Preferred Location</label>
-                    <select id="modalLocation" class="form-control" required>
-                        <option value="">Select a location</option>
-                        <option value="nyc">New York City</option>
-                        <option value="la">Los Angeles</option>
-                        <option value="chicago">Chicago</option>
-                        <option value="miami">Miami</option>
-                        <option value="houston">Houston</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">COMPLETE REGISTRATION</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Mobile Navigation
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMobileNav = document.getElementById('closeMobileNav');
-        const mobileNav = document.getElementById('mobileNav');
-        const overlay = document.getElementById('overlay');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileNav.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+      // Mobile Navigation
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const closeMobileNav = document.getElementById("closeMobileNav");
+      const mobileNav = document.getElementById("mobileNav");
+      const overlay = document.getElementById("overlay");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileNav.classList.add("active");
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeMobileNav.addEventListener("click", function () {
+        mobileNav.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      overlay.addEventListener("click", function () {
+        mobileNav.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      // Close mobile nav when clicking on a link
+      document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileNav.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
         });
-        
-        closeMobileNav.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        overlay.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // Close mobile nav when clicking on a link
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Modal functionality
-        function openModal(plan) {
-            const modal = document.getElementById('membershipModal');
-            const modalPlan = document.getElementById('modalPlan');
-            
-            // Set plan name based on button clicked
-            let planName = '';
-            switch(plan) {
-                case 'basic':
-                    planName = 'Basic ($29/month)';
-                    break;
-                case 'premium':
-                    planName = 'Premium ($49/month)';
-                    break;
-                case 'vip':
-                    planName = 'VIP ($79/month)';
-                    break;
-            }
-            
-            modalPlan.value = planName;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+      });
+
+      // Modal functionality
+      function openModal(plan) {
+        const modal = document.getElementById("membershipModal");
+        const modalPlan = document.getElementById("modalPlan");
+
+        // Set plan name based on button clicked
+        let planName = "";
+        switch (plan) {
+          case "basic":
+            planName = "Basic ($29/month)";
+            break;
+          case "premium":
+            planName = "Premium ($49/month)";
+            break;
+          case "vip":
+            planName = "VIP ($79/month)";
+            break;
         }
-        
-        function closeModal() {
-            document.getElementById('membershipModal').style.display = 'none';
-            document.body.style.overflow = '';
+
+        modalPlan.value = planName;
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("membershipModal").style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("membershipModal");
+        if (event.target == modal) {
+          closeModal();
         }
-        
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('membershipModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        
-        // Form submission
-        document.getElementById('tourForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your tour request! We will contact you shortly to confirm your appointment.');
-            this.reset();
+      };
+
+      // Form submission
+      document
+        .getElementById("tourForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for your tour request! We will contact you shortly to confirm your appointment."
+          );
+          this.reset();
         });
-        
-        document.getElementById('membershipForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for joining Gold\'s Gym! A representative will contact you shortly to complete your membership process.');
-            this.reset();
-            closeModal();
+
+      document
+        .getElementById("membershipForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for joining Gold's Gym! A representative will contact you shortly to complete your membership process."
+          );
+          this.reset();
+          closeModal();
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                // Close mobile nav if open
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Close mobile nav if open
+          mobileNav.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
         });
-        
-        // Make sure date input doesn't show previous dates
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').setAttribute('min', today);
-        });
+      });
+
+      // Make sure date input doesn't show previous dates
+      document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("date").setAttribute("min", today);
+      });
     </script>
-</body>
+  </body>
 </html>

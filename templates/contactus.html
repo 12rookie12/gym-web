@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gold's Gym - Equipment</title>
-    <link
+    <title>Contact Us - Gold's Gym</title>
+    
+      <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
@@ -13,119 +14,113 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-      * {
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-      }
-
-      body {
-        background-color: #f5f5f5;
-        color: #333;
-        line-height: 1.6;
       }
 
       header {
-        background-color: #000;
-        color: #ffd700;
+        background: #333;
+        color: #fff;
         padding: 1rem;
         text-align: center;
       }
 
-      .logo {
-        font-size: 2rem;
+      header .logo {
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-bottom: 0.5rem;
+        color: #ffcc00;
+        text-decoration: none;
       }
 
-      nav {
-        background-color: #333;
-        padding: 0.5rem;
-      }
-
-      nav ul {
+      .nav-links {
+        list-style: none;
+        padding: 0;
         display: flex;
         justify-content: center;
-        list-style: none;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .contact-section {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .contact-container {
+        display: flex;
         flex-wrap: wrap;
-      }
-
-      nav ul li {
-        margin: 0 1rem;
-      }
-
-      nav ul li a {
-        color: #ffd700;
-        text-decoration: none;
-        padding: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      nav ul li a:hover {
-        background-color: #ffd700;
-        color: #000;
-        border-radius: 4px;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-
-      .equipment-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 2rem;
+        justify-content: center;
+        margin-top: 2rem;
       }
 
-      .equipment-card {
-        background-color: white;
+      .contact-info,
+      .contact-form,
+      .map-container {
+        flex: 1 1 300px;
+        max-width: 400px;
+        background: #f9f9f9;
+        padding: 1rem;
         border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
-      .equipment-card:hover {
-        transform: translateY(-5px);
+      .contact-info ul {
+        list-style: none;
+        padding: 0;
       }
 
-      .equipment-card img {
+      .contact-info ul li {
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-info ul li i {
+        margin-right: 0.5rem;
+        color: #ffcc00;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: #333;
+        font-size: 1.5rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
         width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .equipment-info {
-        padding: 1.5rem;
-      }
-
-      .equipment-info h3 {
-        color: #000;
-        margin-bottom: 0.5rem;
-      }
-
-      .equipment-info p {
-        color: #666;
-        margin-bottom: 1rem;
-      }
-
-      .btn {
-        display: inline-block;
-        background-color: #ffd700;
-        color: #000;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s ease;
       }
 
-      .btn:hover {
-        background-color: #000;
-        color: #ffd700;
+      .contact-form button {
+        background: #ffcc00;
+        color: #333;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .contact-form button:hover {
+        background: #e6b800;
       }
 
       :root {
@@ -394,91 +389,102 @@
       }
       /*==================================*/
 
+      /* Responsive Design */
       @media (max-width: 768px) {
-        .equipment-grid {
-          grid-template-columns: 1fr;
-        }
-
-        nav ul {
+        .contact-container {
           flex-direction: column;
           align-items: center;
         }
 
-        nav ul li {
-          margin: 0.5rem 0;
+        .contact-info,
+        .contact-form,
+        .map-container {
+          width: 100%;
+          max-width: 100%;
         }
       }
     </style>
   </head>
   <body>
+    <!-- Header Section -->
     <header>
-      <div class="logo">GOLD'S GYM</div>
-      <p>Where Legends Are Made</p>
+      <nav>
+        <a href="index.html" class="logo">Gold's Gym</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="Equipments.html">Equipment</a></li>
-        <li><a href="Cardio.html">Cardio</a></li>
-        <li><a href="Spinning.html">Spinning</a></li>
-        <li><a href="Free-weight.html">Free Weights</a></li>
-      </ul>
-    </nav>
-
-    <div class="container">
-      <h1>Our Premium Equipment</h1>
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+      <h1>Contact Us</h1>
       <p>
-        Gold's Gym offers state-of-the-art equipment to help you achieve your
-        fitness goals.
+        We'd love to hear from you! Reach out for inquiries, feedback, or
+        membership details.
       </p>
 
-      <div class="equipment-grid">
-        <div class="equipment-card">
-          <img
-            src="{{ url_for('static', filename='imgs/cardio.jpg') }}"
-            alt="Cardio Equipment"
-          />
-          <div class="equipment-info">
-            <h3>Cardio Machines</h3>
-            <p>
-              High-quality treadmills, ellipticals, and stair climbers to boost
-              your cardiovascular health.
-            </p>
-            <a href="Cardio.html" class="btn">Explore Cardio</a>
+      <div class="contact-container">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> 123 Fitness Street, Gym
+              City, GC 12345
+            </li>
+            <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> info@goldsgym.com</li>
+          </ul>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
 
-        <div class="equipment-card">
-          <img
-            src="{{ url_for('static', filename='imgs/spin.jpeg') }}"
-            alt="Spinning Bikes"
-          />
-          <div class="equipment-info">
-            <h3>Spinning Bikes</h3>
-            <p>
-              Professional-grade spin bikes for high-intensity cycling workouts.
-            </p>
-            <a href="Spinning.html" class="btn">Explore Spinning</a>
-          </div>
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <form id="contactForm" action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <input type="tel" name="phone" placeholder="Your Phone Number" />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
         </div>
 
-        <div class="equipment-card">
-          <img
-            src="{{ url_for('static', filename='imgs/free-weight.jpeg') }}"
-            alt="Free Weights"
-          />
-          <div class="equipment-info">
-            <h3>Free Weights</h3>
-            <p>
-              Dumbbells, barbells, and kettlebells for strength training and
-              muscle building.
-            </p>
-            <a href="Free-weight.html" class="btn">Explore Free Weights</a>
-          </div>
+        <!-- Google Maps Integration -->
+        <div class="map-container">
+          <h2>Our Location</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d144.9537353153166!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2aabc5e2f1a!2sGold's%20Gym!5e0!3m2!1sen!2sus!4v1633033226785!5m2!1sen!2sus"
+            width="100%"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          >
+          </iframe>
         </div>
       </div>
-    </div>
+    </section>
 
+    <!-- Footer Section -->
     <footer>
       <div class="container">
         <div class="footer-container">
@@ -539,6 +545,32 @@
         <p>&copy; 2023 Gold's Gym International. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <!-- JavaScript for Form Submission -->
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Get form data
+          const formData = new FormData(event.target);
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+
+          // Display a success message (you can replace this with an actual API call)
+          alert("Thank you for contacting us! We will get back to you soon.");
+          console.log("Form Data:", data);
+
+          // Reset the form
+          event.target.reset();
+        });
+    </script>
+
+    <!-- Font Awesome Icons -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
