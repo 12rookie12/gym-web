@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_session import Session
 from bot import app as bot_app
+from visual import app as visual_app
 import os
 
 app = Flask(__name__)
@@ -16,6 +17,10 @@ def home():
 @app.route('/contact')
 def contact():
     return render_template('contactus.html')
+
+@app.route('/progress')
+def progress():
+    return render_template('progress.html')
 
 @app.route('/getstarted')
 def getstarted():
@@ -45,9 +50,14 @@ def programs():
 def getfreetrial():
     return render_template('getfreetrial.html')
 
+@app.route('/bot')
+def urassistant():
+    return render_template('bot.html')
+
 
 # Include all routes from bot.py with /bot prefix
 app.register_blueprint(bot_app, url_prefix='/bot')
+app.register_blueprint(visual_app, url_prefix='/visual')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

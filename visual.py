@@ -1,150 +1,108 @@
+from flask import request, jsonify, render_template, session
+from datetime import datetime, timedelta
+import json
+import os
+from flask import Blueprint
 
-from flask import Flask,render_template
-import dash
-import dash.dcc as dcc
-import dash.html as html
-from dash.dependencies import Input, Output, State
-import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-import sqlite3
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from database import add_data, fetch_data
+app = Blueprint('visual', __name__, static_folder='static', template_folder='templates')
 
-server = Flask(__name__)  # ✅ Define the Flask server
+# File to store data
+DATA_FILE = 'calorie_data.json'
 
-# Initialize Dash App
-app = dash.Dash(__name__, server=server, routes_pathname_prefix="/")
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, 'r') as f:
+            return json.load(f)
+    return {
+        'consumed': 0,
+        'burned': 0,
+        'foodEntries': [],
+        'exerciseEntries': [],
+        'dailyHistory': {},
+        'currentWeight': None
+    }
 
-# Function to fetch data from database
-def get_dataframe():
-    data = fetch_data()
-    return (
-        pd.DataFrame(data, columns=["Date", "Calories_Intake", "Calories_Burned"])
-        if data
-        else pd.DataFrame()
-    )
+def save_data(data):
+    with open(DATA_FILE, 'w') as f:
+        json.dump(data, f, indent=2)
 
-# Layout
-app.layout = html.Div(
-    style={"backgroundColor": "#1e1e1e", "color": "white", "padding": "20px"},
-    children=[
-        html.H1("🔥 Calories Burned vs. Food Intake", style={"textAlign": "center"}),
-        # Graphs
-        html.Div(
-            [
-                dcc.Graph(id="calories-comparison-graph"),
-                dcc.Graph(id="calorie-pie-chart"),
-            ],
-            style={"display": "flex", "flexDirection": "row"},
-        ),
-        # User Input
-        html.Div(
-            [
-                html.Label("Date:", style={"marginTop": "10px"}),
-                dcc.DatePickerSingle(
-                    id="date-input", date="2025-03-20", display_format="YYYY-MM-DD"
-                ),
-                html.Label("Calories Intake:", style={"marginTop": "10px"}),
-                dcc.Input(id="calories-intake", type="number", value=2000, step=50),
-                html.Label("Calories Burned:", style={"marginTop": "10px"}),
-                dcc.Input(id="calories-burned", type="number", value=2200, step=50),
-                html.Button(
-                    "Add Data",
-                    id="add-btn",
-                    n_clicks=0,
-                    style={
-                        "marginTop": "20px",
-                        "padding": "10px 20px",
-                        "backgroundColor": "#FF5733",
-                        "color": "white",
-                        "border": "none",
-                        "cursor": "pointer",
-                    },
-                ),
-            ],
-            style={
-                "display": "flex",
-                "flexDirection": "column",
-                "maxWidth": "400px",
-                "margin": "auto",
-            },
-        ),
-        # Weight Prediction Section
-        html.Div(
-            [
-                html.H3("📊 Predicted Weight Change:", style={"textAlign": "center"}),
-                html.H2(
-                    id="weight-prediction",
-                    style={"textAlign": "center", "color": "#FF5733"},
-                ),
-            ]
-        ),
-    ],
-)
+def get_today():
+    return datetime.now().strftime('%Y-%m-%d')
 
-# Callback to Update Graphs & Predict Weight
-@app.callback(
-    [Output("calorie-pie-chart", "figure"), Output("calories-comparison-graph", "figure"), Output("weight-prediction", "children")],
-    [Input("add-btn", "n_clicks")],
-    [State("date-input", "date"), State("calories-intake", "value"), State("calories-burned", "value")],
-)
-def update_graph(n_clicks, date, intake, burned):
-    if n_clicks > 0:
-        add_data(date, intake, burned)
+def update_daily_history(data, date, consumed_change=0, burned_change=0):
+    if date not in data['dailyHistory']:
+        data['dailyHistory'][date] = {'consumed': 0, 'burned': 0}
+    
+    data['dailyHistory'][date]['consumed'] += consumed_change
+    data['dailyHistory'][date]['burned'] += burned_change
 
-    df = get_dataframe()
-    if df.empty:
-        return go.Figure(), go.Figure(), "No Data"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    # Line Chart: Calories Burned vs. Consumed
-    fig1 = px.line(
-        df,
-        x="Date",
-        y=["Calories_Intake", "Calories_Burned"],
-        labels={"value": "Calories", "variable": "Type"},
-        title="📈 Calories Consumed vs. Burned Over Time",
-        markers=True,
-        template="plotly_dark",
-    )
+@app.route('/get-data')
+def get_data():
+    data = load_data()
+    return jsonify(data)
 
-    # Pie Chart: Calories Intake Distribution
-    avg_intake = df["Calories_Intake"].mean()
-    avg_burned = df["Calories_Burned"].mean()
+@app.route('/add-food', methods=['POST'])
+def add_food():
+    data = load_data()
+    entry = request.get_json()
+    
+    # Add to entries
+    data['foodEntries'].append(entry)
+    
+    # Update totals
+    calories = int(entry['calories'])
+    data['consumed'] += calories
+    
+    # Update daily history
+    today = get_today()
+    update_daily_history(data, today, consumed_change=calories)
+    
+    save_data(data)
+    return jsonify({
+        'consumed': data['consumed'],
+        'foodEntries': data['foodEntries'],
+        'dailyHistory': data['dailyHistory']
+    })
 
-    fig2 = go.Figure(
-        data=[
-            go.Pie(
-                labels=["Calories Intake", "Calories Burned"],
-                values=[avg_intake, avg_burned],
-                hole=0.4,
-                marker=dict(colors=["#ff6361", "#58508d"]),
-            )
-        ]
-    )
-    fig2.update_layout(
-        title_text="🍽️ Calories Intake vs. Burned Distribution", template="plotly_dark"
-    )
+@app.route('/add-exercise', methods=['POST'])
+def add_exercise():
+    data = load_data()
+    entry = request.get_json()
+    
+    # Add to entries
+    data['exerciseEntries'].append(entry)
+    
+    # Update totals
+    calories = int(entry['calories'])
+    data['burned'] += calories
+    
+    # Update daily history
+    today = get_today()
+    update_daily_history(data, today, burned_change=calories)
+    
+    save_data(data)
+    return jsonify({
+        'burned': data['burned'],
+        'exerciseEntries': data['exerciseEntries'],
+        'dailyHistory': data['dailyHistory']
+    })
 
-    # Weight Prediction Model
-    df["Calorie_Difference"] = df["Calories_Intake"] - df["Calories_Burned"]
+@app.route('/update-weight', methods=['POST'])
+def update_weight():
+    data = load_data()
+    weight_data = request.get_json()
+    
+    # Update current weight
+    data['currentWeight'] = float(weight_data['weight'])
+    
+    save_data(data)
+    return jsonify({
+        'currentWeight': data['currentWeight']
+    })
 
-    # Use the latest caloric difference (last recorded entry)
-    if not df.empty:
-        latest_diff = df["Calorie_Difference"].iloc[-1]  # Get last caloric difference
-        
-        # Weight gain/loss formula: ~7700 calories = 1kg
-        weight_change = round(latest_diff / 7700, 2)
-    else:
-        weight_change = 0
-
-    return fig2, fig1, f"Predicted Weight Change: {weight_change} kg"
-
-@server.route("/track")
-def track():
-    return render_template("progress.html") 
-
-# Run App
-if __name__ == "__main__":
-    app.run(debug=True)  # ✅ NEW (Works)
+if __name__ == '__main__':
+    app.run(debug=True)

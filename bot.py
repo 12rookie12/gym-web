@@ -64,11 +64,10 @@ responses = {
     "what is your name?": "I am a fitness bot here to help you with your fitness journey!",
     "yes": "please have the conversation on counter",
     "located": "Oxy-Genz Gym is located at Malad(East). Visit us anytime!",
-    
     "what is oxy-genz gym": "Oxy-Genz Gym is a premier fitness center offering state-of-the-art facilities and personal training.",
     "what are the gym timings": "We are open from 6 AM to 10 PM daily.",
     "what are the membership fees": "Our monthly membership starts at $30. We also offer yearly discounts!",
-    "what are the facilities": "We have a full range of cardio machines, free weights, resistance training, and group classes!",
+    "what are the   ": "We have a full range of cardio machines, free weights, resistance training, and group classes!",
     "what are the trainers": "Our trainers are certified and experienced in various fitness disciplines.",
     "what are the group classes": "We offer yoga, HIIT, Zumba, and strength training classes. Interested in joining?",
     "what are the personal training sessions": "Our trainers offer customized sessions for weight loss, muscle gain, and overall fitness.",
