@@ -7,6 +7,7 @@ import os
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = "filesystem" 
 app.secret_key = os.environ.get("SECRET_KEY", "supersecretkey123")  
+app.config['SESSION_COOKIE_NAME'] = 'oxy_gen_session'
 Session(app)
 
 # Serve home page
