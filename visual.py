@@ -104,5 +104,6 @@ def update_weight():
         'currentWeight': data['currentWeight']
     })
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Removed to prevent running blueprint as standalone app
+# if __name__ == '__main__':
+#     app.run(debug=True)

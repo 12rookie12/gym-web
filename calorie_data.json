@@ -1,6 +1,6 @@
 {
-  "consumed": 2565,
-  "burned": 2905,
+  "consumed": 2815,
+  "burned": 3205,
   "foodEntries": [
     {
       "name": "chicken salad",
@@ -26,6 +26,11 @@
       "name": "chicken",
       "calories": 255,
       "timestamp": "2025-04-30T11:40:10.557Z"
+    },
+    {
+      "name": "chicken",
+      "calories": 250,
+      "timestamp": "2025-05-24T12:50:51.088Z"
     }
   ],
   "exerciseEntries": [
@@ -53,6 +58,11 @@
       "name": "running",
       "calories": 450,
       "timestamp": "2025-04-30T11:40:14.004Z"
+    },
+    {
+      "name": "running",
+      "calories": 300,
+      "timestamp": "2025-05-24T12:50:54.476Z"
     }
   ],
   "dailyHistory": {
@@ -63,7 +73,11 @@
     "2025-04-30": {
       "consumed": 255,
       "burned": 450
+    },
+    "2025-05-24": {
+      "consumed": 250,
+      "burned": 300
     }
   },
-  "currentWeight": 65.0
+  "currentWeight": 68.0
 }
