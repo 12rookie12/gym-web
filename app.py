@@ -5,12 +5,25 @@ from visual import app as visual_app
 import os
 
 app = Flask(__name__)
-app.config["SESSION_TYPE"] = "filesystem" 
-app.secret_key = os.environ.get("SECRET_KEY", "supersecretkey123")  
 
+# Enhanced session configuration
+app.config.update(
+    SECRET_KEY=os.environ.get("SECRET_KEY", "supersecretkey123"),
+    SESSION_TYPE="filesystem",
+    SESSION_COOKIE_NAME="your_session_cookie",  # Explicitly set cookie name
+    SESSION_FILE_DIR="/tmp/flask_session",  # Required for filesystem sessions
+    SESSION_PERMANENT=False,
+    PERMANENT_SESSION_LIFETIME=3600  # 1 hour
+)
+
+# Initialize session before registering blueprints
 Session(app)
 
-# Serve home page
+# Register blueprints
+app.register_blueprint(bot_app, url_prefix='/bot')
+app.register_blueprint(visual_app, url_prefix='/visual')
+
+# Routes
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -55,10 +68,8 @@ def getfreetrial():
 def urassistant():
     return render_template('bot.html')
 
-
-# Include all routes from bot.py with /bot prefix
-app.register_blueprint(bot_app, url_prefix='/bot')
-app.register_blueprint(visual_app, url_prefix='/visual')
-
 if __name__ == '__main__':
+    # Create session directory if it doesn't exist
+    if app.config['SESSION_TYPE'] == 'filesystem':
+        os.makedirs(app.config['SESSION_FILE_DIR'], exist_ok=True)
     app.run(host='0.0.0.0', port=5000, debug=True)
