@@ -10,14 +10,18 @@ app = Flask(__name__)
 app.config.update(
     SECRET_KEY=os.environ.get("SECRET_KEY", "supersecretkey123"),
     SESSION_TYPE="filesystem",
-    SESSION_COOKIE_NAME="your_session_cookie",  # Explicitly set cookie name
-    SESSION_FILE_DIR="/tmp/flask_session",  # Required for filesystem sessions
+    SESSION_COOKIE_NAME="fitness_app_session",  # Explicit cookie name
+    SESSION_FILE_DIR=os.path.join(os.getcwd(), "flask_session"),  # Specific directory
     SESSION_PERMANENT=False,
-    PERMANENT_SESSION_LIFETIME=3600  # 1 hour
+    PERMANENT_SESSION_LIFETIME=3600,
+    SESSION_COOKIE_SECURE=True,  # For HTTPS
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax'
 )
 
 # Initialize session before registering blueprints
-Session(app)
+sess = Session()
+sess.init_app(app)
 
 # Register blueprints
 app.register_blueprint(bot_app, url_prefix='/bot')

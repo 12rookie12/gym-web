@@ -16,7 +16,7 @@ responses = {
     "personal trainer": "Yes! We have certified trainers available. Would you like a session?",
     "facilities": "We have a full range of cardio machines, free weights, resistance training, and group classes!",
     "group classes": "We offer yoga, HIIT, Zumba, and strength training classes. Interested in joining?",
-    "location": "Oxy-Genz Gym is located at Malad(East). Visit us anytime!",
+    "location": "Oxy-Genz Gym is located at Malad(East), Film City Rd. Visit us anytime!",
     "workout plan": "It depends on your goal! Do you want a plan for weight loss, muscle gain, or general fitness?",
     "best exercise": "Squats, deadlifts, and bench press are great for strength. Want a detailed workout?",
     "cardio or weights": "Both are important! Cardio for endurance and fat loss, weights for muscle growth.",
